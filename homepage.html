@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>+ the plus — Premium Nahrungsergänzung für optimale Performance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300..700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <style>
+    .manifesto {
+      padding: clamp(120px, 14vw, 200px) 0;
+    }
+    .manifesto h2 {
+      font-size: clamp(40px, 5.5vw, 72px);
+      line-height: 1.08;
+      letter-spacing: -0.028em;
+      font-weight: 400;
+    }
+    .manifesto .lead {
+      font-size: clamp(19px, 1.4vw, 22px);
+      line-height: 1.6;
+      color: var(--ink-soft);
+      margin-bottom: 1.4em;
+    }
+
+    .product-spotlight {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: clamp(40px, 6vw, 96px);
+      align-items: center;
+      padding: clamp(100px, 13vw, 180px) 0;
+    }
+    @media (max-width: 900px) {
+      .product-spotlight { grid-template-columns: 1fr; }
+    }
+    .product-spotlight .img-box {
+      aspect-ratio: 4 / 5;
+      min-height: 560px;
+    }
+    .product-spotlight .product-name {
+      font-family: var(--font-display);
+      font-size: clamp(72px, 10vw, 144px);
+      font-weight: 350;
+      line-height: 0.9;
+      letter-spacing: -0.06em;
+      color: var(--ink);
+      margin: 16px 0 32px;
+    }
+    .product-spotlight .product-claim {
+      font-family: var(--font-display);
+      font-size: clamp(24px, 2.8vw, 36px);
+      font-style: italic;
+      font-weight: 300;
+      color: var(--accent);
+      letter-spacing: -0.02em;
+      margin-bottom: 32px;
+    }
+
+    .benefit-mini {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      margin-top: var(--space-block);
+      border-top: 1px solid var(--divider);
+      border-left: 1px solid var(--divider);
+    }
+    .benefit-mini-item {
+      padding: 40px 28px;
+      border-right: 1px solid var(--divider);
+      border-bottom: 1px solid var(--divider);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .benefit-mini-item .num {
+      font-family: var(--font-display);
+      font-size: 13px;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      font-style: italic;
+      font-weight: 500;
+    }
+    .benefit-mini-item h3 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 400;
+      letter-spacing: -0.015em;
+      line-height: 1.2;
+    }
+    @media (max-width: 900px) { .benefit-mini { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .benefit-mini { grid-template-columns: 1fr; } }
+
+    .navigator-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(24px, 3vw, 40px);
+      margin-top: var(--space-block);
+    }
+    @media (max-width: 900px) { .navigator-grid { grid-template-columns: 1fr; gap: 24px; } }
+
+    .navigator-card {
+      background: var(--surface);
+      border: 1px solid var(--divider);
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+      overflow: hidden;
+      transition: all 0.3s var(--ease);
+    }
+    .navigator-card:hover {
+      border-color: var(--ink);
+      transform: translateY(-4px);
+    }
+    .navigator-card .img-box {
+      aspect-ratio: 4 / 3;
+      border-radius: 0;
+    }
+    .navigator-card .card-body {
+      padding: 32px 28px 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex: 1;
+    }
+    .navigator-card .card-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .navigator-card h3 {
+      font-family: var(--font-display);
+      font-size: 26px;
+      line-height: 1.2;
+      font-weight: 400;
+      letter-spacing: -0.015em;
+      color: var(--ink);
+    }
+    .navigator-card p {
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.55;
+      flex: 1;
+    }
+    .navigator-card .card-arrow {
+      font-size: 15px;
+      color: var(--accent);
+      font-weight: 500;
+      margin-top: 8px;
+      letter-spacing: 0.05em;
+    }
+
+    .founder-inline {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(32px, 5vw, 80px);
+      align-items: center;
+      padding: clamp(80px, 10vw, 140px) 0;
+    }
+    @media (max-width: 900px) { .founder-inline { grid-template-columns: 1fr; } }
+    .founder-inline .img-box { aspect-ratio: 4 / 5; min-height: 460px; }
+  </style>
+</head>
+<body>
+
+<div class="preview-notice"><a href="index.html">← Preview-Hub</a></div>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href="index.html" class="site-logo"><span class="plus">+</span> the plus</a>
+    <nav class="site-nav">
+      <a href="homepage.html" class="active">Homepage</a>
+      <a href="product-base.html">base.</a>
+      <a href="inhaltsstoffe.html">Inhaltsstoffe</a>
+      <a href="insights.html">Insights</a>
+      <a href="gruender.html">Gründer</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container-wide">
+    <div class="hero-layout">
+      <div>
+        <span class="eyebrow">+ the plus</span>
+        <h1 class="h1-tripart">
+          <span>Premium-Nahrung</span>
+          <span>für Menschen,</span>
+          <span style="font-style: italic; font-weight: 300;">die nachhaltig performen.</span>
+        </h1>
+        <p class="lead" style="margin-top: 48px; max-width: 540px;">
+          Wir entwickeln studienbasierte Premium-Nahrungsergänzung in Deutschland — für Menschen, deren Entscheidungen Gewicht haben, heute und in zwanzig Jahren.
+        </p>
+        <div class="cta-row">
+          <a href="product-base.html" class="btn">base. entdecken</a>
+          <a href="#manifesto" class="btn-link">Mehr über + the plus</a>
+        </div>
+      </div>
+      <div>
+        <div class="img-box img-box-hero">
+          <img src="assets/images/campaign/hero-hand-holding-jar.png" alt="Hand hält base.-Glas — business-casual, warmes Seitenlicht" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF BAR -->
+<div class="proof-bar">
+  <div class="proof-bar-inner">
+    <span class="proof-item"><strong>+ the plus</strong> nutrition GmbH</span>
+    <span class="proof-item"><strong>Made in Germany</strong></span>
+    <span class="proof-item"><strong>FSSC 22000</strong> zertifiziert</span>
+    <span class="proof-item"><strong>Laborgeprüft</strong> je Charge</span>
+  </div>
+</div>
+
+<!-- BRAND MANIFESTO -->
+<section class="manifesto section-alt" id="manifesto">
+  <div class="container-narrow">
+    <span class="eyebrow">Was wir bauen</span>
+    <h2>Premium-Nahrungsergänzung für Menschen mit langem Zeithorizont.</h2>
+
+    <p class="lead" style="margin-top: 56px;">
+      Wir glauben, dass Erfolg nicht auf Kosten der Gesundheit gehen sollte. Zwischen Drogerie-Produkten, die zu niedrig dosieren, und Biohacker-Stacks, die zu laut und zu kompliziert sind, fehlte bisher eine ernsthafte Mitte: durchdachte Formulierungen in studienbasierten Dosierungen, bioaktiv, in Deutschland hergestellt, transparent deklariert.
+    </p>
+
+    <p class="lead">
+      + the plus füllt diese Lücke. Wir entwickeln Premium-Nahrungsergänzung für Menschen, die ihre Gesundheit als Investition verstehen. Das erste Produkt ist base. — das tägliche Fundament für Kognition und Longevity. Weitere Produkte sind in der Pipeline.
+    </p>
+
+    <p class="lead muted">
+      Hinter + the plus stehen Nico Schinowski, Performance Coach mit über hundert 1:1-Klienten, und David Adam, Unternehmer und seit 2023 Nicos Klient. Aus diesen Trainingssessions heraus wurde die Formel für base. entwickelt.
+    </p>
+  </div>
+</section>
+
+<!-- WHO IS THIS FOR -->
+<section>
+  <div class="container-narrow text-center">
+    <span class="eyebrow">Für wen wir bauen</span>
+    <h2>Menschen, deren Entscheidungen Gewicht haben.</h2>
+    <p class="lead muted" style="margin-top: 40px;">Du bist vielleicht:</p>
+    <ul class="who-list">
+      <li>Ein Gründer oder Unternehmer.</li>
+      <li>Eine Senior Leaderin oder Executive.</li>
+      <li>Ein High-Performing Professional.</li>
+      <li>Jemand, der Erfolg will — ohne Gesundheit und Privatleben zu opfern.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- PRODUKT SPOTLIGHT — base. -->
+<section class="section-alt">
+  <div class="container-wide">
+    <div class="product-spotlight">
+      <div>
+        <span class="eyebrow">Unser erstes Produkt</span>
+        <div class="product-name">base.</div>
+        <div class="product-claim">Klarheit, die bleibt.</div>
+        <p class="lead" style="color: var(--ink-soft); font-size: 19px; line-height: 1.6;">
+          Die tägliche Formel für Kognition und Longevity. 29 Wirkstoffe in zwei Kapseln, aus der Trainerpraxis heraus formuliert. Vier Dimensionen in einem Glas.
+        </p>
+
+        <div class="benefit-mini">
+          <div class="benefit-mini-item">
+            <span class="num">01 · Kognition</span>
+            <h3>Klarheit, die trägt.</h3>
+          </div>
+          <div class="benefit-mini-item">
+            <span class="num">02 · Zellenergie</span>
+            <h3>Energie, die bleibt.</h3>
+          </div>
+          <div class="benefit-mini-item">
+            <span class="num">03 · Zellschutz</span>
+            <h3>Schutz, der wirkt.</h3>
+          </div>
+          <div class="benefit-mini-item">
+            <span class="num">04 · Fundament</span>
+            <h3>Eine Dose statt zehn.</h3>
+          </div>
+        </div>
+
+        <div class="cta-row" style="margin-top: 48px;">
+          <a href="product-base.html" class="btn">base. entdecken</a>
+          <a href="inhaltsstoffe.html" class="btn-link">Alle 29 Inhaltsstoffe</a>
+        </div>
+      </div>
+      <div>
+        <div class="img-box">
+          <img src="assets/images/packshots/styled/01_marble_morning.png" alt="base. auf Marmoroberfläche, Morgenlicht" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NAVIGATOR — Auszug aus allen Inhalten -->
+<section>
+  <div class="container-wide">
+    <div class="text-center mx-auto" style="max-width: 680px;">
+      <span class="eyebrow">Tiefe, wo du sie brauchst</span>
+      <h2>Alles, was du wissen willst.</h2>
+      <p class="lead muted" style="margin-top: 40px;">
+        Ein Auszug aus allem, was + the plus zu bieten hat — von der vollständigen Wirkstoff-Deklaration über die Gründer-Geschichte bis zu den konkreten Momenten, in denen base. den Unterschied macht.
+      </p>
+    </div>
+
+    <div class="navigator-grid">
+
+      <a href="inhaltsstoffe.html" class="navigator-card">
+        <div class="img-box">
+          <img src="assets/images/ingredients/29-ingredients-spread.png" alt="29 Wirkstoffe im Überblick" />
+        </div>
+        <div class="card-body">
+          <span class="card-label">Inhaltsstoffe</span>
+          <h3>29 Wirkstoffe, jeder mit Dosierung und Quelle.</h3>
+          <p>Volle Deklaration der Formel: 6 Premium-Wirkstoffe mit Studienreferenzen, 13 Vitamine und 9 Mineralstoffe in bioaktiven Formen, plus was bewusst nicht drin ist.</p>
+          <span class="card-arrow">Zur Inhaltsstoff-Seite →</span>
+        </div>
+      </a>
+
+      <a href="fuer-high-performer.html" class="navigator-card">
+        <div class="img-box">
+          <img src="assets/images/lifestyle/editorial/boardroom-confidence.png" alt="High Performer im Board-Meeting" />
+        </div>
+        <div class="card-body">
+          <span class="card-label">Für High Performer</span>
+          <h3>Acht Momente, in denen base. den Unterschied macht.</h3>
+          <p>Board-Meeting, Investor Pitch, Long-Haul Travel, Due Diligence, Deep Work — konkrete Szenarien mit physiologischem Kontext, für Gründer und Executives.</p>
+          <span class="card-arrow">Die Momente →</span>
+        </div>
+      </a>
+
+      <a href="gruender.html" class="navigator-card">
+        <div class="img-box">
+          <img src="assets/images/people/01_male_founder.png" alt="Nico Schinowski und David Adam — die Gründer" />
+        </div>
+        <div class="card-body">
+          <span class="card-label">Die Gründer</span>
+          <h3>Nico Schinowski und David Adam.</h3>
+          <p>Ein Performance-Coach mit 100+ Klienten und acht Jahren Militärdienst. Ein Unternehmer, der 2023 bei ihm anfing zu trainieren. Wie + the plus entstanden ist.</p>
+          <span class="card-arrow">Die Geschichte →</span>
+        </div>
+      </a>
+
+      <a href="insights.html" class="navigator-card">
+        <div class="img-box">
+          <img src="assets/images/ingredients/pqq.png" alt="PQQ — Wissen zur Formel" />
+        </div>
+        <div class="card-body">
+          <span class="card-label">Insights</span>
+          <h3>Wissen, das nicht verfällt.</h3>
+          <p>Redaktionelle Inhalte zu Performance, Longevity und der Wissenschaft, die dahinter steht. Zwölf Artikel, nach Themen sortiert.</p>
+          <span class="card-arrow">Alle Artikel →</span>
+        </div>
+      </a>
+
+      <a href="product-base.html#synergie" class="navigator-card">
+        <div class="img-box">
+          <img src="assets/images/ingredients/ginkgo-botanical-portrait.png" alt="19 dokumentierte Wirkstoff-Synergien" />
+        </div>
+        <div class="card-body">
+          <span class="card-label">Die Synergie</span>
+          <h3>19 dokumentierte Wirkstoff-Synergien.</h3>
+          <p>Q10 + PQQ. D3 + K2. Vitamin C + E. Warum eine durchdachte Formel mehr ist als die Summe ihrer Einzelteile — und warum selbst der beste Stack nicht mithält.</p>
+          <span class="card-arrow">Zur PDP →</span>
+        </div>
+      </a>
+
+      <a href="product-base.html#pricing" class="navigator-card">
+        <div class="img-box">
+          <img src="assets/images/packshots/clean/subscription-three-jars.png" alt="Abo, 3er und 6er Paket" />
+        </div>
+        <div class="card-body">
+          <span class="card-label">Pricing &amp; Abo</span>
+          <h3>Vier Optionen. Ein Produkt.</h3>
+          <p>Einmalkauf für 59 €, Abo für 49 €/Monat (17 % gespart), 3er-Paket für 139 €, 6er-Paket für 269 €. Alles versandkostenfrei, alles mit 30 Tagen Geld-zurück.</p>
+          <span class="card-arrow">Pricing ansehen →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- GRÜNDER-INLINE -->
+<section class="section-dark">
+  <div class="container-wide">
+    <div class="founder-inline">
+      <div>
+        <div class="img-box">
+          <img src="assets/images/people/03_male_creative_director.png" alt="Nico Schinowski — Performance Coach" />
+        </div>
+      </div>
+      <div>
+        <span class="eyebrow">Die Herkunft</span>
+        <h2 style="color: #F3F1EC; font-size: clamp(36px, 4.5vw, 56px);">Aus der Trainerpraxis von Nico Schinowski.</h2>
+        <p class="lead" style="color: #D6D1C7; margin-top: 32px;">
+          Nico coacht seit Jahren mehr als hundert Menschen in 1:1-Betreuung — Unternehmer, Führungskräfte, Sportler, Ärztinnen. Die Frage „was nehme ich selbst und empfehle meinen Klienten" war der Ausgangspunkt für base.
+        </p>
+        <p style="color: #D6D1C7; font-size: 17px; line-height: 1.6;">
+          Ex-Soldat mit acht Jahren Militärdienst. Fitnesstrainer A-Lizenz, die höchste deutsche Ausbildung. Ernährungsberater. Hormon-Coach. Reha-Trainer. Strength Coach. Funktional Trainer Level 1 und 2.
+        </p>
+        <div style="margin-top: 40px;">
+          <a href="gruender.html" class="btn-link" style="color: #F3F1EC; border-bottom-color: #F3F1EC;">Die ganze Geschichte</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="section-alt">
+  <div class="container-narrow text-center">
+    <span class="eyebrow">+ the plus Insights</span>
+    <h2>Einmal monatlich. Tiefe, keine Tricks.</h2>
+    <p class="lead" style="margin-top: 40px; max-width: 540px; margin-left: auto; margin-right: auto;">
+      Ein redaktioneller Newsletter für Menschen, die verstehen wollen. Keine Rabatt-Mails, keine täglichen Pings. Ein Thema, einmal im Monat, zu Ende gedacht.
+    </p>
+    <form style="display: flex; gap: 12px; max-width: 480px; margin: 48px auto 0; flex-wrap: wrap; justify-content: center;">
+      <input type="email" placeholder="deine@adresse.de" style="flex: 1; min-width: 240px; padding: 16px 24px; background: var(--surface); border: 1px solid var(--divider); color: var(--ink); font-family: var(--font-body); font-size: 14px; border-radius: 100px; letter-spacing: 0.03em;" />
+      <button type="submit" class="btn">Abonnieren</button>
+    </form>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section>
+  <div class="container text-center">
+    <span class="eyebrow">Jetzt starten</span>
+    <h2 class="h1-tripart" style="margin-top: 32px;">
+      <span>+ the plus</span>
+      <span style="font-style: italic; font-weight: 300;">für die lange Strecke.</span>
+    </h2>
+    <p class="lead muted" style="margin-top: 48px; max-width: 580px; margin-left: auto; margin-right: auto;">
+      base. ist unser Anfang. Der Rest folgt.
+    </p>
+    <div class="cta-row" style="justify-content: center; margin-top: 40px;">
+      <a href="product-base.html" class="btn">base. entdecken</a>
+    </div>
+    <p class="micro" style="margin-top: 32px;">
+      Made in Germany · FSSC 22000 · 30 Tage risikofrei · Kostenloser Versand
+    </p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-tag">own your life.</div>
+    <div class="footer-links">
+      <a href="product-base.html">base.</a>
+      <a href="inhaltsstoffe.html">Inhaltsstoffe</a>
+      <a href="insights.html">Insights</a>
+      <a href="gruender.html">Gründer</a>
+      <a href="fuer-high-performer.html">Für High Performer</a>
+      <a href="#">Kontakt</a>
+      <a href="#">Impressum</a>
+      <a href="#">Datenschutz</a>
+      <a href="#">AGB</a>
+    </div>
+    <p class="footer-copy">+ the plus nutrition GmbH · Premium Nahrungsergänzung für optimale Performance</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>29 Inhaltsstoffe — Dosierung, Form, Quelle | base.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300..700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <style>
+    .ingredient-detail {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: clamp(40px, 6vw, 96px);
+      padding: clamp(80px, 10vw, 120px) 0;
+      border-bottom: 1px solid var(--divider);
+      align-items: start;
+    }
+    .ingredient-detail:last-child { border-bottom: none; }
+    .ingredient-visual {
+      position: sticky;
+      top: 120px;
+    }
+    .ingredient-visual .img-box {
+      aspect-ratio: 4 / 5;
+      min-height: 440px;
+    }
+    .ingredient-label {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 24px;
+      display: block;
+    }
+    .ingredient-detail h3 {
+      font-size: clamp(32px, 4vw, 56px);
+      line-height: 1.05;
+      letter-spacing: -0.025em;
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+    .ingredient-dose {
+      font-family: var(--font-display);
+      font-size: 22px;
+      color: var(--ink-muted);
+      font-style: italic;
+      margin-bottom: 32px;
+    }
+    .ingredient-detail p {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--ink-soft);
+      margin-bottom: 16px;
+    }
+    .ingredient-meta {
+      margin-top: 32px;
+      padding-top: 32px;
+      border-top: 1px solid var(--divider);
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 16px 32px;
+      font-size: 14px;
+    }
+    .ingredient-meta dt {
+      color: var(--ink-muted);
+      letter-spacing: 0.04em;
+      font-weight: 500;
+    }
+    .ingredient-meta dd {
+      color: var(--ink);
+    }
+    .ingredient-meta dd a {
+      color: var(--accent);
+      border-bottom: 1px solid var(--accent);
+    }
+    @media (max-width: 900px) {
+      .ingredient-detail { grid-template-columns: 1fr; }
+      .ingredient-visual { position: static; }
+      .ingredient-meta { grid-template-columns: 1fr; gap: 8px; }
+      .ingredient-meta dt { margin-top: 12px; }
+    }
+
+    .vm-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border-top: 1px solid var(--divider);
+      border-left: 1px solid var(--divider);
+      margin-top: var(--space-block);
+    }
+    .vm-item {
+      padding: 32px 28px;
+      border-right: 1px solid var(--divider);
+      border-bottom: 1px solid var(--divider);
+    }
+    .vm-item .vm-name {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 400;
+      margin-bottom: 4px;
+      letter-spacing: -0.015em;
+    }
+    .vm-item .vm-dose {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+      margin-bottom: 12px;
+    }
+    .vm-item .vm-form {
+      font-size: 13px;
+      color: var(--ink-muted);
+      line-height: 1.5;
+      font-style: italic;
+    }
+    @media (max-width: 900px) { .vm-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .vm-grid { grid-template-columns: 1fr; } }
+
+    .not-inside {
+      background: var(--bg-dark);
+      color: #F3F1EC;
+      padding: clamp(64px, 8vw, 120px) 0;
+      margin-top: var(--space-section);
+    }
+    .not-inside h2 { color: #F3F1EC; }
+    .not-inside p { color: #B8B5AD; }
+    .not-inside ul {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px 48px;
+      margin-top: var(--space-block);
+    }
+    .not-inside ul li {
+      padding: 20px 0;
+      border-bottom: 1px solid #2A302B;
+      color: #F3F1EC;
+      font-size: 16px;
+      font-family: var(--font-display);
+      letter-spacing: -0.01em;
+      font-weight: 400;
+    }
+    @media (max-width: 700px) { .not-inside ul { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<div class="preview-notice"><a href="index.html">← Preview-Hub</a></div>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href="index.html" class="site-logo"><span class="plus">+</span> the plus</a>
+    <nav class="site-nav">
+      <a href="homepage.html">Homepage</a>
+      <a href="product-base.html">base.</a>
+      <a href="inhaltsstoffe.html" class="active">Inhaltsstoffe</a>
+      <a href="insights.html">Insights</a>
+      <a href="gruender.html">Gründer</a>
+      <a href="gruender.html">Gründer</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container-wide">
+    <div class="hero-layout">
+      <div>
+        <span class="eyebrow">Die Inhaltsstoffe</span>
+        <h1 class="h1-tripart">
+          <span>29 Wirkstoffe.</span>
+          <span style="font-style: italic; font-weight: 300;">Jeder belegbar.</span>
+        </h1>
+        <p class="lead" style="margin-top: 48px; max-width: 520px;">
+          Auf dem Etikett von base. steht jede Dosierung in Milligramm, jede Wirkstoffform ist benannt, jede Quelle lässt sich zur Originalstudie zurückverfolgen. Hier ist der vollständige Überblick.
+        </p>
+        <div class="cta-row">
+          <a href="#premium" class="btn-link">Die 6 Premium-Wirkstoffe</a>
+          <a href="#vitamine" class="btn-link">13 Vitamine</a>
+          <a href="#mineralstoffe" class="btn-link">9 Mineralstoffe</a>
+        </div>
+      </div>
+      <div>
+        <div class="img-box img-box-hero">
+          <img src="assets/images/ingredients/29-ingredients-spread.png" alt="Alle 29 Wirkstoffe von base. nebeneinander" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF BAR -->
+<div class="proof-bar">
+  <div class="proof-bar-inner">
+    <span class="proof-item"><strong>6</strong> Premium-Wirkstoffe</span>
+    <span class="proof-item"><strong>13</strong> Vitamine</span>
+    <span class="proof-item"><strong>9</strong> Mineralstoffe</span>
+    <span class="proof-item">Jeder mit <strong>Studie</strong></span>
+  </div>
+</div>
+
+<!-- INTRO -->
+<section class="section-alt">
+  <div class="container-narrow">
+    <span class="eyebrow">Die Logik</span>
+    <h2>Warum base. nach Studien dosiert — nicht nach EU-Referenzmenge.</h2>
+    <p class="lead" style="margin-top: 48px;">
+      Die EU-Referenzmenge ist die Menge, ab der ein klinischer Mangel verhindert wird. Das ist nicht dieselbe Menge, ab der ein Wirkstoff im Körper einen messbaren Effekt auslöst. Beispiel: Phosphatidylserin zeigt in Studien Wirkung auf Gedächtnis und Konzentration bei 100–300 mg täglich. Die EU-Referenzmenge existiert dafür gar nicht, weil es kein essenzieller Nährstoff ist.
+    </p>
+    <p class="lead" style="margin-top: 24px;">
+      Wir haben base. so formuliert, dass jeder der 29 Wirkstoffe in einer Dosierung enthalten ist, für die die Studienlage Wirkung nahelegt. Wo Sicherheitsgrenzen erreicht werden, bleiben wir darunter. Wo Studien mehr empfehlen, hat base. mehr.
+    </p>
+    <p class="lead" style="margin-top: 24px;">
+      Im Folgenden: die sechs Premium-Wirkstoffe mit voller Begründung, dann die 22 Vitamine und Mineralstoffe in kompakter Übersicht.
+    </p>
+  </div>
+</section>
+
+<!-- PREMIUM WIRKSTOFFE -->
+<section id="premium">
+  <div class="container-wide">
+    <div class="text-center mx-auto" style="max-width: 760px;">
+      <span class="eyebrow">Die sechs Premium-Wirkstoffe</span>
+      <h2>Die Bausteine, die den Unterschied machen.</h2>
+      <p class="lead muted" style="margin-top: 40px;">
+        Diese sechs Wirkstoffe findest du in 99 % der Standard-Multivitamine nicht. Aufwendig in der Herstellung, teurer im Einkauf — aber für Kognition und Longevity der eigentliche Hebel.
+      </p>
+    </div>
+
+    <div style="margin-top: var(--space-section);">
+
+      <!-- 1. Phosphatidylserin -->
+      <div class="ingredient-detail">
+        <div class="ingredient-visual">
+          <div class="img-box">
+            <img src="assets/images/ingredients/jar-ingredient-powders-frontal.png" alt="Phosphatidylserin in base." />
+          </div>
+        </div>
+        <div>
+          <span class="ingredient-label">01 · Kognition</span>
+          <h3>Phosphatidylserin</h3>
+          <div class="ingredient-dose">150 mg pro Tag</div>
+          <p>Phosphatidylserin ist ein Phospholipid und bildet etwa 15 % der Membranen deiner Nervenzellen. Die Funktion der Membranen entscheidet, wie gut Neurotransmitter zwischen den Zellen übertragen werden — der physiologische Substrat von Konzentration, Gedächtnis und mentaler Klarheit.</p>
+          <p>Mit zunehmendem Alter, unter chronischem Stress und bei einseitiger Ernährung sinkt die körpereigene Phosphatidylserin-Konzentration. Studien haben positive Effekte auf Gedächtnis, Konzentration und Stressresistenz bei täglichen Dosen zwischen 100 und 300 mg gezeigt.</p>
+          <p>base. liefert 150 mg — gezielt in der mittleren Wirkdosis, verträglich und in einer Menge, die in keinem Standard-Multivitamin vorkommt.</p>
+          <dl class="ingredient-meta">
+            <dt>Form</dt><dd>Sojalecithin-Extrakt (hochgereinigt)</dd>
+            <dt>Studien</dt><dd>Cognitive function (Review, 2015); Short-term memory (RCT, 2024)</dd>
+            <dt>EFSA-Claim</dt><dd>Derzeit kein EFSA-Claim; Wirkung in peer-reviewed Studien dokumentiert</dd>
+          </dl>
+        </div>
+      </div>
+
+      <!-- 2. Coenzym Q10 -->
+      <div class="ingredient-detail">
+        <div class="ingredient-visual">
+          <div class="img-box">
+            <img src="assets/images/ingredients/coenzyme-q10.png" alt="Coenzym Q10" />
+          </div>
+        </div>
+        <div>
+          <span class="ingredient-label">02 · Zellenergie</span>
+          <h3>Coenzym Q10</h3>
+          <div class="ingredient-dose">50 mg pro Tag</div>
+          <p>Coenzym Q10 ist in jeder Zelle deines Körpers zu finden, am höchsten konzentriert in Herz, Leber und Gehirn. Es ist ein zentraler Baustein der mitochondrialen ATP-Produktion — der Energiewährung deiner Zellen.</p>
+          <p>Ab dem 25. Lebensjahr beginnt die körpereigene Q10-Synthese messbar zu sinken. Statine und bestimmte Medikamente reduzieren die Konzentration zusätzlich. Niedrige Q10-Spiegel korrelieren mit Müdigkeit, nachlassender Leistungsfähigkeit und reduzierter mitochondrialer Effizienz.</p>
+          <p>base. liefert 50 mg — eine Dosis, die in Studien Effekte auf Fatigue-Reduktion und zerebrale Durchblutung gezeigt hat. In Kombination mit PQQ entsteht eine Synergie aus Optimierung (Q10) und Neubildung (PQQ).</p>
+          <dl class="ingredient-meta">
+            <dt>Form</dt><dd>Ubichinon (hochbioverfügbar)</dd>
+            <dt>Studien</dt><dd>Fatigue reduction (Meta-Analyse, 2022); Cerebral blood flow (Review, 2025)</dd>
+            <dt>Synergie</dt><dd>Q10 + PQQ: verstärkte kognitive Effekte (RCT, 2023)</dd>
+          </dl>
+        </div>
+      </div>
+
+      <!-- 3. PQQ -->
+      <div class="ingredient-detail">
+        <div class="ingredient-visual">
+          <div class="img-box">
+            <img src="assets/images/ingredients/pqq.png" alt="PQQ (MGCPQQ®)" />
+          </div>
+        </div>
+        <div>
+          <span class="ingredient-label">03 · Mitochondrien</span>
+          <h3>PQQ · MGCPQQ®</h3>
+          <div class="ingredient-dose">500 µg pro Tag</div>
+          <p>PQQ (Pyrrolochinolinchinon) ist ein redox-aktiver Kofaktor, den einige Forscher als das 14. Vitamin bezeichnen. Seine besondere Funktion: Er fördert nicht nur die Aktivität bestehender Mitochondrien, sondern die Biogenese neuer Mitochondrien — also die Zellkraftwerks-Erneuerung.</p>
+          <p>Wir nutzen MGCPQQ® — eine von Mitsubishi patentierte, durch Bakterienfermentation hergestellte Form mit dokumentierter Reinheit und stabiler Bioverfügbarkeit. MGCPQQ® ist in der EU als Novel Food zugelassen.</p>
+          <p>In Studien an gesunden Erwachsenen zeigten sich bei Dosen um 20 mg Effekte auf kognitive Flexibilität und Aufmerksamkeit. base. kombiniert 500 µg PQQ mit 50 mg Q10, um gleichzeitig Neubildung und Funktion der Mitochondrien zu unterstützen.</p>
+          <dl class="ingredient-meta">
+            <dt>Form</dt><dd>MGCPQQ® (Mitsubishi, Novel Food zugelassen)</dd>
+            <dt>Studien</dt><dd>Cognitive function (RCT, 2024); Q10 + PQQ Synergie (RCT, 2023)</dd>
+            <dt>Hinweis</dt><dd>Als Novel Food in EU nach Verordnung (EU) 2017/2470 zugelassen</dd>
+          </dl>
+        </div>
+      </div>
+
+      <!-- 4. Astaxanthin -->
+      <div class="ingredient-detail">
+        <div class="ingredient-visual">
+          <div class="img-box">
+            <img src="assets/images/ingredients/astaxanthin.png" alt="Astaxanthin aus Blutregenalge" />
+          </div>
+        </div>
+        <div>
+          <span class="ingredient-label">04 · Zellschutz</span>
+          <h3>Astaxanthin</h3>
+          <div class="ingredient-dose">3 mg pro Tag</div>
+          <p>Astaxanthin ist ein Carotinoid, gewonnen aus der Mikroalge Haematococcus pluvialis. Es gehört zu den stärksten bekannten natürlichen Antioxidantien — und ist das einzige Carotinoid, das die Blut-Hirn-Schranke passiert und so direkt im Nervensystem wirkt.</p>
+          <p>Anders als Vitamin C (wasserlöslich) oder Vitamin E (fettlöslich, aber membranspezifisch) kann Astaxanthin an beiden Seiten der Zellmembran gleichzeitig wirken — eine biologisch besondere Eigenschaft, die seinen breiten Schutzeffekt erklärt.</p>
+          <p>In Studien an gesunden Erwachsenen wurden Effekte auf oxidative Marker bei Dosen zwischen 2 und 12 mg dokumentiert. base. liefert 3 mg — eine verträgliche, studiennahe Dosis, die sich über Wochen in Geweben anreichert.</p>
+          <dl class="ingredient-meta">
+            <dt>Form</dt><dd>Astaxanthin aus Haematococcus pluvialis</dd>
+            <dt>Studien</dt><dd>Blood-brain barrier (Review, 2024); Cognition (Review, 2024)</dd>
+            <dt>Besonderheit</dt><dd>Einziges Antioxidans, das die Blut-Hirn-Schranke passiert</dd>
+          </dl>
+        </div>
+      </div>
+
+      <!-- 5. Cholin -->
+      <div class="ingredient-detail">
+        <div class="ingredient-visual">
+          <div class="img-box">
+            <img src="assets/images/ingredients/jar-ingredient-powders-labeled.png" alt="Cholin in base." />
+          </div>
+        </div>
+        <div>
+          <span class="ingredient-label">05 · Neurotransmitter</span>
+          <h3>Cholin</h3>
+          <div class="ingredient-dose">85 mg pro Tag</div>
+          <p>Cholin ist die biochemische Vorstufe von Acetylcholin — dem wichtigsten Neurotransmitter für Konzentration, Gedächtnis und Lernen. Wenn dein Gehirn Informationen verarbeiten oder abrufen muss, wird Acetylcholin ausgeschüttet. Ohne ausreichenden Cholin-Nachschub gerät dieser Prozess an seine Grenzen.</p>
+          <p>Laut EFSA nehmen rund 90 % der Europäer zu wenig Cholin über die Ernährung auf. Die klassischen Cholin-Quellen — Eier, Leber, bestimmter Fisch — sind in typischen Alltagsessen selten ausreichend vertreten.</p>
+          <p>base. liefert 85 mg — eine Dosis, die in Kombination mit dem B-Komplex (der den Cholin-Stoffwechsel als Kofaktor unterstützt) die Acetylcholin-Synthese zuverlässig stützt.</p>
+          <dl class="ingredient-meta">
+            <dt>Form</dt><dd>Cholinbitartrat (stabil, gut resorbierbar)</dd>
+            <dt>EFSA-Claims</dt><dd>Trägt zu normalem Fettstoffwechsel, normaler Leberfunktion und normalem Homocystein-Stoffwechsel bei</dd>
+            <dt>Synergie</dt><dd>Cholin + B-Komplex (B6, B9, B12) im Acetylcholin-Stoffwechsel</dd>
+          </dl>
+        </div>
+      </div>
+
+      <!-- 6. Ginkgo biloba -->
+      <div class="ingredient-detail">
+        <div class="ingredient-visual">
+          <div class="img-box">
+            <img src="assets/images/ingredients/ginkgo-botanical-portrait.png" alt="Ginkgo biloba" />
+          </div>
+        </div>
+        <div>
+          <span class="ingredient-label">06 · Durchblutung</span>
+          <h3>Ginkgo biloba</h3>
+          <div class="ingredient-dose">50 mg pro Tag</div>
+          <p>Ginkgo biloba ist einer der am längsten untersuchten pflanzlichen Wirkstoffe in der westlichen Medizin. Der standardisierte Blätter-Extrakt enthält zwei Hauptwirkstoff-Klassen: Flavonglykoside (24 %) und Terpenlaktone (6 %).</p>
+          <p>Die dokumentierte Wirkung: Förderung der zerebralen Durchblutung, Verbesserung der mikrovaskulären Versorgung und damit der Sauerstoff- und Nährstoffzufuhr zu Nervenzellen. Für kognitive Leistungsfähigkeit ist die Hirndurchblutung einer der physiologisch entscheidenden Faktoren.</p>
+          <p>In einer Meta-Analyse über 21 Studien wurden bei Dosen zwischen 120 und 240 mg pro Tag positive Effekte auf Gedächtnis und exekutive Funktion dokumentiert. base. liefert 50 mg — als konstante Grundversorgung in Kombination mit Phosphatidylserin, wobei beide Wirkstoffe sich in ihrer Bioverfügbarkeit gegenseitig unterstützen.</p>
+          <dl class="ingredient-meta">
+            <dt>Form</dt><dd>Standardisierter Extrakt (24 % Flavone, 6 % Lactone)</dd>
+            <dt>Studien</dt><dd>Cognitive function (Meta-Analyse über 21 Studien, 2025)</dd>
+            <dt>Synergie</dt><dd>Ginkgo + Phosphatidylserin: verbesserte Bioverfügbarkeit beider Wirkstoffe</dd>
+          </dl>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- VITAMINE -->
+<section id="vitamine" class="section-alt">
+  <div class="container-wide">
+    <div class="text-center mx-auto" style="max-width: 680px;">
+      <span class="eyebrow">13 Vitamine</span>
+      <h2>In bioaktiven Formen, wo sie den Unterschied machen.</h2>
+      <p class="lead muted" style="margin-top: 40px;">
+        Dort, wo die Wirkstoff-Form über die tatsächliche Aufnahme entscheidet, verwendet base. die direkt verwertbare, bioaktive Variante — nicht die günstigste.
+      </p>
+    </div>
+
+    <div class="vm-grid">
+      <div class="vm-item">
+        <div class="vm-name">Vitamin B1</div>
+        <div class="vm-dose">2,2 mg · Thiamin</div>
+        <div class="vm-form">Nervensystem, Herzfunktion, Energiestoffwechsel</div>
+      </div>
+      <div class="vm-item">
+        <div class="vm-name">Vitamin B2</div>
+        <div class="vm-dose">2,1 mg · Riboflavin</div>
+        <div class="vm-form">Zellschutz, Energiestoffwechsel</div>
+      </div>
+      <div class="vm-item">
+        <div class="vm-name">Vitamin B3</div>
+        <div class="vm-dose">16 mg · Nicotinamid</div>
+        <div class="vm-form">Nervensystem, Haut, Energiestoffwechsel</div>
+      </div>
+      <div class="vm-item">
+        <div class="vm-name">Vitamin B5</div>
+        <div class="vm-dose">6 mg · Pantothensäure</div>
+        <div class="vm-form">Einziges Vitamin mit EFSA-Claim für geistige Leistungsfähigkeit¹</div>
+      </div>
+      <div class="vm-item">
+        <div class="vm-name">Vitamin B6</div>
+        <div class="vm-dose">4,2 mg · P-5-P</div>
+        <div class="vm-form">Bioaktive Form (Pyridoxal-5-Phosphat), direkt verwertbar</div>
+      </div>
+      <div class="vm-item">
+        <div class="vm-name">Vitamin B7</div>
+        <div class="vm-dose">100 µg · Biotin</div>
+        <div class="vm-form">Haare, Haut, Nervensystem</div>
+      </div>
+      <div class="vm-item">
+        <div class="vm-name">Vitamin B9</div>
+        <div class="vm-dose">200 µg · Folsäure</div>
+        <div class="vm-form">Blutbildung, Zellteilung, Homocystein-Stoffwechsel</div>
+      </div>
+      <div class="vm-item">
+        <div class="vm-name">Vitamin B12</div>
+        <div class="vm-dose">10 µg · Methyl- + Hydroxocobalamin</div>
+        <div class="vm-form">Zwei bioaktive Formen, keine Cyano-Variante</div>
+      </div>
+      <div class="vm-item">
+        <div class="vm-name">Vitamin A</div>
+        <div class="vm-dose">800 µg · Retinylacetat</div>
+        <div class="vm-form">Immunsystem, Sehkraft</div>
+      </div>
+      <div class="vm-item">
+        <div class="vm-name">Vitamin C</div>
+        <div class="vm-dose">80 mg · L-Ascorbinsäure</div>
+        <div class="vm-form">Zellschutz, Immunsystem, Vit-E-Recycling</div>
+      </div>
+      <div class="vm-item">
+        <div class="vm-name">Vitamin D3</div>
+        <div class="vm-dose">20 µg · aus Flechten</div>
+        <div class="vm-form">800 IE, 100 % vegan (nicht aus Lanolin)</div>
+      </div>
+      <div class="vm-item">
+        <div class="vm-name">Vitamin E</div>
+        <div class="vm-dose">12 mg · Tocopherylacetat</div>
+        <div class="vm-form">Antioxidativer Schutz in Zellmembranen</div>
+      </div>
+      <div class="vm-item">
+        <div class="vm-name">Vitamin K2</div>
+        <div class="vm-dose">75 µg · MK-7</div>
+        <div class="vm-form">Längste Halbwertszeit aller K-Formen, Synergie mit D3</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MINERALSTOFFE -->
+<section id="mineralstoffe">
+  <div class="container-wide">
+    <div class="text-center mx-auto" style="max-width: 680px;">
+      <span class="eyebrow">9 Mineralstoffe</span>
+      <h2>In hochwertigen, gut resorbierbaren Formen.</h2>
+      <p class="lead muted" style="margin-top: 40px;">
+        Gerade bei Mineralstoffen macht die Form den Unterschied zwischen Aufnahme und Ausscheidung. base. setzt auf organische Verbindungen und Chelate statt auf Oxide.
+      </p>
+    </div>
+
+    <div class="vm-grid">
+      <div class="vm-item">
+        <div class="vm-name">Magnesium</div>
+        <div class="vm-dose">60 mg · Trimagnesiumdicitrat</div>
+        <div class="vm-form">Organische Form, gut verträglich</div>
+      </div>
+      <div class="vm-item">
+        <div class="vm-name">Zink</div>
+        <div class="vm-dose">8 mg · Bisglycinat</div>
+        <div class="vm-form">Chelat-Form, hohe Bioverfügbarkeit</div>
+      </div>
+      <div class="vm-item">
+        <div class="vm-name">Selen</div>
+        <div class="vm-dose">44 µg · Natriumselenit</div>
+        <div class="vm-form">Zellschutz-Enzyme, Immunsystem</div>
+      </div>
+      <div class="vm-item">
+        <div class="vm-name">Chrom</div>
+        <div class="vm-dose">40 µg · Picolinat</div>
+        <div class="vm-form">Blutzucker-Stoffwechsel</div>
+      </div>
+      <div class="vm-item">
+        <div class="vm-name">Kupfer</div>
+        <div class="vm-dose">1 mg · Gluconat</div>
+        <div class="vm-form">Nervensystem, Zellschutz, Co-Faktor SOD-Enzym</div>
+      </div>
+      <div class="vm-item">
+        <div class="vm-name">Mangan</div>
+        <div class="vm-dose">1,6 mg · Gluconat</div>
+        <div class="vm-form">Knochen, Bindegewebe, antioxidative Enzyme</div>
+      </div>
+      <div class="vm-item">
+        <div class="vm-name">Molybdän</div>
+        <div class="vm-dose">50 µg · Natriummolybdat</div>
+        <div class="vm-form">Aminosäure- und Schwefelstoffwechsel</div>
+      </div>
+      <div class="vm-item">
+        <div class="vm-name">Bor</div>
+        <div class="vm-dose">0,5 mg · Natriumborat</div>
+        <div class="vm-form">Knochenstoffwechsel</div>
+      </div>
+      <div class="vm-item">
+        <div class="vm-name">Silicium</div>
+        <div class="vm-dose">10 mg · aus Bambussprossen</div>
+        <div class="vm-form">Haut, Haare, Bindegewebe</div>
+      </div>
+    </div>
+
+    <p class="micro" style="margin-top: 56px; max-width: 720px;">
+      ¹ EFSA Health Claims — Verordnung (EG) Nr. 1924/2006.
+    </p>
+  </div>
+</section>
+
+<!-- WAS NICHT DRIN IST -->
+<section class="not-inside">
+  <div class="container-narrow">
+    <span class="eyebrow">Nicht in base.</span>
+    <h2>Was wir bewusst weggelassen haben.</h2>
+    <p class="lead" style="margin-top: 40px; color: #D6D1C7; max-width: 640px;">
+      Formulierungshilfen, die in der Supplement-Industrie Standard sind — die wir aber aus Qualitätsgründen nicht verwenden.
+    </p>
+    <ul>
+      <li>Kein Magnesiumstearat als Fließhilfe.</li>
+      <li>Kein Titandioxid als Weißmacher.</li>
+      <li>Kein Cyanocobalamin als billige B12-Form.</li>
+      <li>Keine synthetischen Farbstoffe.</li>
+      <li>Keine künstlichen Aromen.</li>
+      <li>Kein Koffein oder andere Stimulanzien.</li>
+      <li>Keine Zucker oder Süßstoffe.</li>
+      <li>Keine Gelatine — HPMC-Kapseln, 100 % pflanzlich.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- QUALITÄT -->
+<section>
+  <div class="container-wide">
+    <div class="text-center mx-auto" style="max-width: 680px;">
+      <span class="eyebrow">Qualität</span>
+      <h2>Produktion in Deutschland. Jede Charge geprüft.</h2>
+    </div>
+
+    <div class="quality-grid">
+      <div class="quality-item">
+        <h4>Made in Germany</h4>
+        <p>Formulierung und Produktion in Deutschland.</p>
+      </div>
+      <div class="quality-item">
+        <h4>FSSC 22000</h4>
+        <p>Zertifizierter Lebensmittelsicherheits-Standard in der Produktion.</p>
+      </div>
+      <div class="quality-item">
+        <h4>Laborgeprüft</h4>
+        <p>Jede Charge unabhängig auf Reinheit und Schwermetalle geprüft.</p>
+      </div>
+      <div class="quality-item">
+        <h4>100 % Vegan</h4>
+        <p>HPMC-Kapseln. D3 aus Flechten.</p>
+      </div>
+      <div class="quality-item">
+        <h4>Bioaktive Formen</h4>
+        <p>Methylcobalamin, P-5-P, MK-7, Bisglycinat.</p>
+      </div>
+      <div class="quality-item">
+        <h4>Volle Deklaration</h4>
+        <p>Alle Dosierungen offen. Keine Proprietary Blends.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section-alt">
+  <div class="container text-center">
+    <span class="eyebrow">base. bestellen</span>
+    <h2>29 Wirkstoffe. Zwei Kapseln. Jeden Morgen.</h2>
+    <div class="cta-row" style="justify-content: center; margin-top: 48px;">
+      <a href="product-base.html" class="btn">base. bestellen</a>
+      <a href="insights.html" class="btn-link">Mehr in Insights</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-tag">own your life.</div>
+    <p class="footer-copy">+ the plus nutrition GmbH · Made in Germany · FSSC 22000</p>
+  </div>
+</footer>
+
+</body>
+</html>

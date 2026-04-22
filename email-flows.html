@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Email-Flows Preview — + the plus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300..700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+
+<div class="preview-notice"><a href="index.html" style="color: var(--ink);">← Preview-Hub</a></div>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href="index.html" class="site-logo"><span class="plus">+</span> the plus</a>
+    <nav class="site-nav">
+      <a href="homepage.html">Homepage</a>
+      <a href="product-base.html">base.</a>
+      <a href="meta-ads.html">Ads</a>
+      <a href="email-flows.html" class="active">Emails</a>
+      <a href="brand-foundation.html">Brand</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" style="padding-bottom: 0;">
+  <div class="container text-center">
+    <span class="eyebrow">Email-Flows &middot; Klaviyo</span>
+    <h1 class="h1-tripart">
+      <span>Fünf Flows.</span>
+      <span style="color: var(--accent-lift); font-style: italic; font-weight: 300;">14 Mails.</span>
+    </h1>
+    <p class="lead muted" style="margin-top: 40px; max-width: 620px; margin-left: auto; margin-right: auto;">
+      Welcome &middot; Abandoned Cart &middot; Browse Abandonment &middot; Newsletter &middot; Abo-Retention. Absender: David oder Nico, persönlich.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="container-wide">
+    <div class="inbox-app">
+
+      <aside class="inbox-sidebar">
+        <div class="inbox-flow-tabs">
+          <button class="flow-tab active" data-flow="welcome">Welcome (5)</button>
+          <button class="flow-tab" data-flow="cart">Abandoned Cart (3)</button>
+          <button class="flow-tab" data-flow="browse">Browse (2)</button>
+          <button class="flow-tab" data-flow="newsletter">Newsletter (3)</button>
+          <button class="flow-tab" data-flow="retention">Retention (3)</button>
+        </div>
+
+        <!-- Welcome Flow List -->
+        <div class="inbox-list active" id="list-welcome">
+          <div class="inbox-item active" data-mail="mail-w1">
+            <div class="inbox-from">David &amp; Nico · the plus</div>
+            <div class="inbox-subject">Willkommen bei the plus.</div>
+            <div class="inbox-preheader">Was vor dir liegt — und was dich trägt.</div>
+          </div>
+          <div class="inbox-item" data-mail="mail-w2">
+            <div class="inbox-from">David · the plus</div>
+            <div class="inbox-subject">Zwei Kapseln. Jeden Morgen. Warum das reicht.</div>
+            <div class="inbox-preheader">Die einfachste Routine, die wir bauen konnten.</div>
+          </div>
+          <div class="inbox-item" data-mail="mail-w3">
+            <div class="inbox-from">David · the plus</div>
+            <div class="inbox-subject">Die sechs Wirkstoffe, die den Unterschied machen.</div>
+            <div class="inbox-preheader">Was in 99 % der Multivitamine fehlt.</div>
+          </div>
+          <div class="inbox-item" data-mail="mail-w4">
+            <div class="inbox-from">David · the plus</div>
+            <div class="inbox-subject">Was in den nächsten Wochen passiert.</div>
+            <div class="inbox-preheader">Warum base. kein Koffein ist.</div>
+          </div>
+          <div class="inbox-item" data-mail="mail-w5">
+            <div class="inbox-from">David · the plus</div>
+            <div class="inbox-subject">Warum wir base. gebaut haben.</div>
+            <div class="inbox-preheader">Nicht das billigste. Nicht das lauteste. Das, das wir selbst nehmen.</div>
+          </div>
+        </div>
+
+        <!-- Cart Flow List -->
+        <div class="inbox-list" id="list-cart">
+          <div class="inbox-item active" data-mail="mail-c1">
+            <div class="inbox-from">David · the plus</div>
+            <div class="inbox-subject">Da war noch etwas.</div>
+            <div class="inbox-preheader">base. wartet in deinem Warenkorb.</div>
+          </div>
+          <div class="inbox-item" data-mail="mail-c2">
+            <div class="inbox-from">David · the plus</div>
+            <div class="inbox-subject">Falls du zögerst — zwei Dinge.</div>
+            <div class="inbox-preheader">Die Fragen, die wir am häufigsten hören.</div>
+          </div>
+          <div class="inbox-item" data-mail="mail-c3">
+            <div class="inbox-from">David · the plus</div>
+            <div class="inbox-subject">base. — falls es für dich passt.</div>
+            <div class="inbox-preheader">Keine weitere Mail nötig.</div>
+          </div>
+        </div>
+
+        <!-- Browse Flow List -->
+        <div class="inbox-list" id="list-browse">
+          <div class="inbox-item active" data-mail="mail-b1">
+            <div class="inbox-from">David · the plus</div>
+            <div class="inbox-subject">Die Formel hinter base.</div>
+            <div class="inbox-preheader">29 Wirkstoffe. Jeder mit einem Grund.</div>
+          </div>
+          <div class="inbox-item" data-mail="mail-b2">
+            <div class="inbox-from">David · the plus</div>
+            <div class="inbox-subject">Warum wir base. gebaut haben.</div>
+            <div class="inbox-preheader">Die Geschichte hinter der Formel.</div>
+          </div>
+        </div>
+
+        <!-- Newsletter Flow List -->
+        <div class="inbox-list" id="list-newsletter">
+          <div class="inbox-item active" data-mail="mail-n1">
+            <div class="inbox-from">David · the plus</div>
+            <div class="inbox-subject">Die Tage, die lang werden.</div>
+            <div class="inbox-preheader">Ein Gedanke zu Kapazität.</div>
+          </div>
+          <div class="inbox-item" data-mail="mail-n2">
+            <div class="inbox-from">David · the plus</div>
+            <div class="inbox-subject">Warum wir keinen Rabatt geben.</div>
+            <div class="inbox-preheader">Eine kurze Erklärung.</div>
+          </div>
+          <div class="inbox-item" data-mail="mail-n3">
+            <div class="inbox-from">David · the plus</div>
+            <div class="inbox-subject">Was wir bewusst nicht versprechen.</div>
+            <div class="inbox-preheader">Ein Gedanke zu Erwartungen.</div>
+          </div>
+        </div>
+
+        <!-- Retention Flow List -->
+        <div class="inbox-list" id="list-retention">
+          <div class="inbox-item active" data-mail="mail-r1">
+            <div class="inbox-from">David · the plus</div>
+            <div class="inbox-subject">Bevor du pausierst — eine Frage.</div>
+            <div class="inbox-preheader">Was können wir besser machen?</div>
+          </div>
+          <div class="inbox-item" data-mail="mail-r2">
+            <div class="inbox-from">David · the plus</div>
+            <div class="inbox-subject">Hätten wir dich behalten können?</div>
+            <div class="inbox-preheader">Eine ehrliche Frage.</div>
+          </div>
+          <div class="inbox-item" data-mail="mail-r3">
+            <div class="inbox-from">David · the plus</div>
+            <div class="inbox-subject">Deine Kapseln sind längst alle.</div>
+            <div class="inbox-preheader">Falls du weitermachen willst.</div>
+          </div>
+        </div>
+      </aside>
+
+      <div class="inbox-content">
+
+        <!-- Welcome Mails -->
+        <article class="mail-view active" id="mail-w1">
+          <div class="mail-head">
+            <div class="mail-subject">Willkommen bei the plus.</div>
+            <div class="mail-meta">
+              <strong>Von:</strong> David &amp; Nico &lt;hi@theplus.de&gt;<br />
+              <strong>An:</strong> [Vorname]<br />
+              <strong>Preheader:</strong> Was vor dir liegt — und was dich trägt.
+            </div>
+          </div>
+          <div class="mail-body">
+            <p>Hi [Vorname],</p>
+            <p>schön, dass du hier bist.</p>
+            <p>Bevor du base. zum ersten Mal nimmst, ein paar Zeilen zu dem, was dich in den nächsten Wochen erwartet.</p>
+            <p>In base. ist kein Koffein und kein anderer Stimulant enthalten. Die Wirkung baut sich über die Zellversorgung auf, nicht über einen akuten Effekt. Viele spüren nach ein bis zwei Wochen eine gleichmäßigere Energie und ruhigeren Schlaf. Die volle Wirkung kommt nach etwa vier bis sechs Wochen.</p>
+            <p>Was du in den nächsten Tagen von uns hören wirst:</p>
+            <ul>
+              <li>Wie du base. am besten in deinen Morgen einbaust</li>
+              <li>Warum wir bestimmte Wirkstoffe in dieser Dosierung verwenden</li>
+              <li>Was in deinem Körper passiert, wenn du anfängst</li>
+            </ul>
+            <p>Keine Rabatt-Mails. Keine täglichen Pings. Nur das, was dir hilft, base. sinnvoll zu nutzen.</p>
+            <p>Bis bald.</p>
+            <div class="mail-sign">
+              David &amp; Nico<br />
+              the plus<br /><br />
+              <em>own your life.</em>
+            </div>
+          </div>
+        </article>
+
+        <article class="mail-view" id="mail-w2">
+          <div class="mail-head">
+            <div class="mail-subject">Zwei Kapseln. Jeden Morgen. Warum das reicht.</div>
+            <div class="mail-meta">
+              <strong>Von:</strong> David · the plus &lt;david@theplus.de&gt;<br />
+              <strong>An:</strong> [Vorname]<br />
+              <strong>Versand:</strong> Tag 2
+            </div>
+          </div>
+          <div class="mail-body">
+            <p>Hi [Vorname],</p>
+            <p>base. nimmst du einmal am Tag. Zwei Kapseln. Am besten morgens, zum Frühstück.</p>
+            <p><strong>Warum morgens?</strong></p>
+            <p>Die B-Vitamine und Coenzyme arbeiten am besten, wenn dein Stoffwechsel hochfährt. Und weil base. kein Koffein enthält, funktioniert die Einnahme unabhängig von deinem Schlaf.</p>
+            <p><strong>Warum zum Essen?</strong></p>
+            <p>Vier der Wirkstoffe sind fettlöslich — Vitamin D3, K2, E und Astaxanthin. Sie werden am besten aufgenommen, wenn ein wenig Fett in der Nahrung dabei ist. Ein normales Frühstück reicht. Kein Bulletproof Coffee nötig.</p>
+            <p>Wenn du einmal vergisst: kein Problem. Einfach am nächsten Tag weitermachen.</p>
+            <div class="mail-sign">
+              David<br /><br />
+              <em>own your life.</em>
+            </div>
+          </div>
+        </article>
+
+        <article class="mail-view" id="mail-w3">
+          <div class="mail-head">
+            <div class="mail-subject">Die sechs Wirkstoffe, die den Unterschied machen.</div>
+            <div class="mail-meta">
+              <strong>Von:</strong> David · the plus<br />
+              <strong>Versand:</strong> Tag 5
+            </div>
+          </div>
+          <div class="mail-body">
+            <p>Hi [Vorname],</p>
+            <p>base. hat 29 Wirkstoffe. Sechs davon findest du in 99 % der Standard-Multivitamine nicht. Hier ein kurzer Überblick — ohne Chemie-Vorlesung.</p>
+            <p><strong>Phosphatidylserin (150 mg)</strong><br />Ein Baustein deiner Nervenzellmembranen. Wichtig für Gedächtnis und Stressresistenz. Studien zeigen Wirkung bei 100–300 mg täglich.</p>
+            <p><strong>Coenzym Q10 + PQQ</strong><br />Deine Mitochondrien-Kapazität. Q10 optimiert bestehende Zellkraftwerke. PQQ fördert die Neubildung.</p>
+            <p><strong>Astaxanthin (3 mg)</strong><br />Eines der stärksten natürlichen Antioxidantien. Das einzige, das bis ins Gehirn gelangt.</p>
+            <p><strong>Ginkgo biloba (50 mg)</strong><br />Standardisierter Extrakt. Fördert die zerebrale Durchblutung.</p>
+            <p><strong>Cholin (85 mg)</strong><br />Vorstufe von Acetylcholin — dem Neurotransmitter für Konzentration.</p>
+            <p>Wenn du die vollständige Liste mit Studienreferenzen sehen willst:</p>
+            <p><a href="#" class="mail-cta">Alle 29 Inhaltsstoffe ansehen →</a></p>
+            <div class="mail-sign">
+              David<br /><br />
+              <em>own your life.</em>
+            </div>
+          </div>
+        </article>
+
+        <article class="mail-view" id="mail-w4">
+          <div class="mail-head">
+            <div class="mail-subject">Was in den nächsten Wochen passiert.</div>
+            <div class="mail-meta">
+              <strong>Von:</strong> David · the plus<br />
+              <strong>Versand:</strong> Tag 10
+            </div>
+          </div>
+          <div class="mail-body">
+            <p>Hi [Vorname],</p>
+            <p>nach einer Woche base. spürst du vielleicht schon die ersten Veränderungen — meistens als gleichmäßigere Energie oder besseren Schlaf. Vielleicht aber auch noch nichts. Beides ist normal.</p>
+            <p>Das ist der Verlauf, den viele berichten:</p>
+            <p><strong>Woche 1–2: Die Grundlagen.</strong><br />B-Vitamine und Magnesium füllen auf, was gefehlt hat.</p>
+            <p><strong>Woche 3–6: Der Aufbau.</strong><br />Phosphatidylserin reichert sich in den Zellmembranen an. Q10 und PQQ wirken in den Mitochondrien. Fokus wird konstanter.</p>
+            <p><strong>Ab Monat 2: Die neue Normalität.</strong><br />Das Fundament steht. Viele merken den Unterschied am deutlichsten, wenn sie base. einmal weglassen.</p>
+            <p>Gib dir vier bis sechs Wochen. Die Wirkstoffe brauchen diese Zeit, um sich in Zellmembranen und Geweben anzureichern. Bei Phosphatidylserin etwa reden wir von Halbwertszeiten, die nicht in Stunden, sondern in Wochen rechnen.</p>
+            <div class="mail-sign">
+              David<br /><br />
+              <em>own your life.</em>
+            </div>
+          </div>
+        </article>
+
+        <article class="mail-view" id="mail-w5">
+          <div class="mail-head">
+            <div class="mail-subject">Warum wir base. gebaut haben.</div>
+            <div class="mail-meta">
+              <strong>Von:</strong> David · the plus<br />
+              <strong>Versand:</strong> Tag 14
+            </div>
+          </div>
+          <div class="mail-body">
+            <p>Hi [Vorname],</p>
+            <p>Nico ist Performance-Coach. Er arbeitet mit Menschen, deren Körper ihr wichtigstes Asset ist.</p>
+            <p>Ich bin Unternehmer. Ich kenne die Tage, an denen der Tag länger ist als die Konzentration.</p>
+            <p>Wir haben base. gebaut, weil es das Produkt nicht gab, das wir selbst suchten. Nicht das lauteste. Nicht das günstigste. Sondern das mit der Substanz, die trägt.</p>
+            <p>Wenn du Fragen hast — zum Produkt, zur Formulierung, zu irgendetwas — antworte einfach auf diese Mail. Wir lesen alles selbst.</p>
+            <p>Bis bald.</p>
+            <div class="mail-sign">
+              David<br /><br />
+              <em>own your life.</em>
+            </div>
+          </div>
+        </article>
+
+        <!-- Cart Mails -->
+        <article class="mail-view" id="mail-c1">
+          <div class="mail-head">
+            <div class="mail-subject">Da war noch etwas.</div>
+            <div class="mail-meta">
+              <strong>Von:</strong> David · the plus<br />
+              <strong>Trigger:</strong> 30 Min. nach Cart-Abandonment
+            </div>
+          </div>
+          <div class="mail-body">
+            <p>Hi [Vorname],</p>
+            <p>du warst kurz davor — base. liegt noch in deinem Warenkorb.</p>
+            <p>Falls du Fragen hast: antworte einfach auf diese Mail. Wir helfen dir gerne, das Richtige zu finden.</p>
+            <p>Falls du bereit bist:</p>
+            <p><a href="#" class="mail-cta">Zurück zur Bestellung →</a></p>
+            <div class="mail-sign">
+              David<br /><br />
+              <em>own your life.</em>
+            </div>
+          </div>
+        </article>
+
+        <article class="mail-view" id="mail-c2">
+          <div class="mail-head">
+            <div class="mail-subject">Falls du zögerst — zwei Dinge.</div>
+            <div class="mail-meta">
+              <strong>Von:</strong> David · the plus<br />
+              <strong>Trigger:</strong> 6 h nach Cart-Abandonment
+            </div>
+          </div>
+          <div class="mail-body">
+            <p>Hi [Vorname],</p>
+            <p>falls du noch zögerst — zwei Dinge, die viele fragen, bevor sie starten.</p>
+            <p><strong>"Wie schnell merke ich etwas?"</strong><br />Erste Veränderungen berichten viele nach ein bis zwei Wochen, meist als gleichmäßigere Energie oder besseren Schlaf. Die volle Wirkung entfaltet sich über vier bis sechs Wochen. Koffein wirkt in Minuten, Phosphatidylserin braucht Wochen, um sich im Gewebe anzureichern.</p>
+            <p><strong>"Und wenn es nicht passt?"</strong><br />Wir haben eine 30-Tage-Geld-zurück-Garantie. Ohne Rückfragen. Ohne Formulare. Nimm base. einen Monat. Wenn du nicht überzeugt bist, erstatten wir dir den vollen Kaufpreis.</p>
+            <p>Das Risiko liegt bei uns.</p>
+            <p><a href="#" class="mail-cta">Jetzt starten →</a></p>
+            <div class="mail-sign">
+              David<br /><br />
+              <em>own your life.</em>
+            </div>
+          </div>
+        </article>
+
+        <article class="mail-view" id="mail-c3">
+          <div class="mail-head">
+            <div class="mail-subject">base. — falls es für dich passt.</div>
+            <div class="mail-meta">
+              <strong>Von:</strong> David · the plus<br />
+              <strong>Trigger:</strong> 24 h nach Cart-Abandonment
+            </div>
+          </div>
+          <div class="mail-body">
+            <p>Hi [Vorname],</p>
+            <p>das ist die letzte Erinnerung. Versprochen.</p>
+            <p>base. ist für Menschen, die in Jahrzehnten denken. Für Gründer, die wissen, dass ihr Körper ihr wichtigstes Asset ist. Wenn das nicht zu dir passt — alles gut. Dann brauchst du keine weiteren Mails von uns.</p>
+            <p>Wenn doch:</p>
+            <p><a href="#" class="mail-cta">Zur Bestellung →</a></p>
+            <div class="mail-sign">
+              David<br /><br />
+              <em>own your life.</em>
+            </div>
+          </div>
+        </article>
+
+        <!-- Browse Mails -->
+        <article class="mail-view" id="mail-b1">
+          <div class="mail-head">
+            <div class="mail-subject">Die Formel hinter base.</div>
+            <div class="mail-meta">
+              <strong>Von:</strong> David · the plus<br />
+              <strong>Trigger:</strong> 4 h nach PDP-Besuch
+            </div>
+          </div>
+          <div class="mail-body">
+            <p>Hi [Vorname],</p>
+            <p>du hast dir base. angeschaut — danke dafür.</p>
+            <p>Falls du noch unsicher bist, was genau dahintersteckt, hier die Kurzform:</p>
+            <p><strong>29 Wirkstoffe.</strong> In bioaktiven Formen. Formuliert nach Studienlage. Nicht nach Marketing-Minimum.</p>
+            <p><strong>Zwei Säulen:</strong> Kognition (Phosphatidylserin, Ginkgo, Cholin, B-Komplex) + Longevity (Q10, PQQ, Astaxanthin, Antioxidantien).</p>
+            <p><strong>Zwei Kapseln.</strong> Jeden Morgen. Zum Frühstück.</p>
+            <p><strong>Ein Fundament.</strong> Das trägt.</p>
+            <p><a href="#" class="mail-cta">Zurück zur Formulierung →</a></p>
+            <div class="mail-sign">
+              David<br /><br />
+              <em>own your life.</em>
+            </div>
+          </div>
+        </article>
+
+        <article class="mail-view" id="mail-b2">
+          <div class="mail-head">
+            <div class="mail-subject">Warum wir base. gebaut haben.</div>
+            <div class="mail-meta">
+              <strong>Von:</strong> David · the plus<br />
+              <strong>Trigger:</strong> 3 Tage nach PDP-Besuch
+            </div>
+          </div>
+          <div class="mail-body">
+            <p>Hi [Vorname],</p>
+            <p>kurz zu uns.</p>
+            <p>Nico ist Performance-Coach. Er hat jahrelang mit Menschen gearbeitet, deren Körper ihr wichtigstes Asset ist. Training, Ernährung, Diagnostik.</p>
+            <p>Ich bin Unternehmer. Ich kenne die Tage, an denen der Tag länger ist als die Konzentration.</p>
+            <p>Wir haben base. gebaut, weil wir selbst das Produkt gesucht — und nicht gefunden haben. Premium-Wirkstoffe in wissenschaftlicher Dosierung. Bioaktive Formen. Transparent. Einfach.</p>
+            <p>Wenn du das Gefühl hast, base. passt für dich:</p>
+            <p><a href="#" class="mail-cta">Zum Produkt →</a></p>
+            <p>Wenn nicht: kein Problem. Auch dann danke für deine Zeit.</p>
+            <div class="mail-sign">
+              David<br /><br />
+              <em>own your life.</em>
+            </div>
+          </div>
+        </article>
+
+        <!-- Newsletter Mails -->
+        <article class="mail-view" id="mail-n1">
+          <div class="mail-head">
+            <div class="mail-subject">Die Tage, die lang werden.</div>
+            <div class="mail-meta">
+              <strong>Von:</strong> David · the plus<br />
+              <strong>Preheader:</strong> Ein Gedanke zu Kapazität.
+            </div>
+          </div>
+          <div class="mail-body">
+            <p>Hi [Vorname],</p>
+            <p>Nico hat einmal gesagt: "Die meisten Menschen trainieren für das Leben, das sie haben. Wir trainieren für das Leben, das sie führen."</p>
+            <p>Für seine Klienten heißt das: Kapazität ist keine Konstante. Du hast nicht "einen Energiespiegel" — du hast Stunden, in denen du lieferst, und Stunden, in denen du regenerierst. Beides muss passen.</p>
+            <p>base. ist so gebaut. Es stimuliert nicht. Es füllt auf, was lange Tage leeren.</p>
+            <p>Zwei Kapseln am Morgen. Dann trägt das Fundament den Rest.</p>
+            <div class="mail-sign">
+              David<br /><br />
+              <em>own your life.</em>
+            </div>
+          </div>
+        </article>
+
+        <article class="mail-view" id="mail-n2">
+          <div class="mail-head">
+            <div class="mail-subject">Warum wir keinen Rabatt geben.</div>
+            <div class="mail-meta">
+              <strong>Von:</strong> David · the plus<br />
+              <strong>Preheader:</strong> Eine kurze Erklärung.
+            </div>
+          </div>
+          <div class="mail-body">
+            <p>Hi [Vorname],</p>
+            <p>vielleicht ist dir aufgefallen: base. gibt es nicht im Black-Friday-Sale. Keine "Spar 50 %"-Mails. Keine "Nur heute"-Pushes.</p>
+            <p>Der Grund ist einfach.</p>
+            <p>Wenn wir einen Wirkstoff wie Phosphatidylserin in studienrelevanter Dosierung (150 mg) einsetzen, kostet das Geld. Wenn wir in Deutschland unter FSSC 22000-Standard produzieren, kostet das Geld. Wenn wir jede Charge laborprüfen lassen, kostet das Geld.</p>
+            <p>49 € im Monat sind der faire Preis. Nicht der niedrigste mögliche. Der faire.</p>
+            <p>Wir halten uns an den Preis, weil wir uns an die Formulierung halten wollen. Sobald wir anfangen, den einen zu variieren, müssen wir auch beim anderen Kompromisse eingehen.</p>
+            <div class="mail-sign">
+              David<br /><br />
+              <em>own your life.</em>
+            </div>
+          </div>
+        </article>
+
+        <article class="mail-view" id="mail-n3">
+          <div class="mail-head">
+            <div class="mail-subject">Was wir bewusst nicht versprechen.</div>
+            <div class="mail-meta">
+              <strong>Von:</strong> David · the plus<br />
+              <strong>Preheader:</strong> Ein Gedanke zu Erwartungen.
+            </div>
+          </div>
+          <div class="mail-body">
+            <p>Hi [Vorname],</p>
+            <p>base. macht dich nicht zum besseren Menschen. Nicht zum produktiveren CEO. Nicht zum schnelleren Läufer.</p>
+            <p>Was base. macht: Es gibt deinem Körper, was er braucht, damit er das tun kann, was du von ihm verlangst. Nicht mehr. Nicht weniger.</p>
+            <p>Viele Produkte versprechen "mehr Energie", "schärferen Fokus", "bessere Entscheidungen". Solche Aussagen lassen sich beim Einzelnen kaum belegen. Was sich belegen lässt, steht in den Studien: Wenn die Nervenzellmembranen ausreichend Phosphatidylserin zur Verfügung haben, funktionieren sie biologisch messbar besser. Alles, was daraus im Alltag wird, entsteht bei dir.</p>
+            <p>Die Wirkung entsteht bei dir. Wir liefern die Substanz.</p>
+            <div class="mail-sign">
+              David<br /><br />
+              <em>own your life.</em>
+            </div>
+          </div>
+        </article>
+
+        <!-- Retention Mails -->
+        <article class="mail-view" id="mail-r1">
+          <div class="mail-head">
+            <div class="mail-subject">Bevor du pausierst — eine Frage.</div>
+            <div class="mail-meta">
+              <strong>Von:</strong> David · the plus<br />
+              <strong>Trigger:</strong> Sofort nach "Pause"-Klick
+            </div>
+          </div>
+          <div class="mail-body">
+            <p>Hi [Vorname],</p>
+            <p>du bist im Begriff, dein Abo zu pausieren — kein Problem, du kannst das natürlich jederzeit tun.</p>
+            <p>Bevor du das machst: antworte gerne auf diese Mail und sag uns, was wir besser machen könnten.</p>
+            <ul>
+              <li>Hat base. dich überzeugt, aber du brauchst gerade kein Nachschub?</li>
+              <li>Hast du nicht das gespürt, was du erwartet hast?</li>
+              <li>Ist es das Geld?</li>
+              <li>Oder etwas anderes?</li>
+            </ul>
+            <p>Ehrliche Antwort hilft uns, das Produkt (und den Service) besser zu machen.</p>
+            <p><a href="#" class="mail-cta">Abo pausieren →</a></p>
+            <div class="mail-sign">
+              David<br /><br />
+              <em>own your life.</em>
+            </div>
+          </div>
+        </article>
+
+        <article class="mail-view" id="mail-r2">
+          <div class="mail-head">
+            <div class="mail-subject">Hätten wir dich behalten können?</div>
+            <div class="mail-meta">
+              <strong>Von:</strong> David · the plus<br />
+              <strong>Trigger:</strong> 14 Tage nach Kündigung
+            </div>
+          </div>
+          <div class="mail-body">
+            <p>Hi [Vorname],</p>
+            <p>du hast dein Abo vor zwei Wochen gekündigt. Alles gut — wir zwingen niemanden.</p>
+            <p>Aber eine Frage hätten wir noch:</p>
+            <p>Was hätten wir besser machen müssen, damit du geblieben wärst?</p>
+            <ul>
+              <li>War base. nicht, was du erwartet hast?</li>
+              <li>War es der Preis?</li>
+              <li>Hast du etwas anderes gefunden, das besser passt?</li>
+              <li>Oder war es einfach nicht der richtige Zeitpunkt?</li>
+            </ul>
+            <p>Antwort auf diese Mail reicht. Wir lesen jede Antwort selbst.</p>
+            <p><a href="#" class="mail-cta">Zurück zum Abo →</a></p>
+            <p>Keine Wertung. Keine Rabatt-Mail hinterher. Nur echte Neugier.</p>
+            <div class="mail-sign">
+              David<br /><br />
+              <em>own your life.</em>
+            </div>
+          </div>
+        </article>
+
+        <article class="mail-view" id="mail-r3">
+          <div class="mail-head">
+            <div class="mail-subject">Deine Kapseln sind längst alle.</div>
+            <div class="mail-meta">
+              <strong>Von:</strong> David · the plus<br />
+              <strong>Trigger:</strong> 60 Tage nach letztem Kauf (nur Einmalkunden)
+            </div>
+          </div>
+          <div class="mail-body">
+            <p>Hi [Vorname],</p>
+            <p>du hast base. vor zwei Monaten bestellt — deine Dose ist längst leer.</p>
+            <p>Falls du weitermachen willst: das Abo spart dir 17 % und landet jeden Monat automatisch bei dir. Mindestlaufzeit drei Lieferungen, danach jederzeit kündbar.</p>
+            <p><a href="#" class="mail-cta">Abo starten →</a></p>
+            <p>Oder, falls du lieber einmalig bleiben willst:</p>
+            <p><a href="#" class="mail-cta" style="background: transparent; border: 1px solid var(--divider); color: var(--ink);">Einmalkauf →</a></p>
+            <p>Falls du base. für dich nicht als das Richtige siehst — auch völlig okay. Dann brauchst du keine weiteren Mails von uns.</p>
+            <div class="mail-sign">
+              David<br /><br />
+              <em>own your life.</em>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-tag">own your life.</div>
+    <p class="footer-copy">+ the plus nutrition GmbH &middot; Flows müssen in Klaviyo neu gebaut werden</p>
+  </div>
+</footer>
+
+<script>
+  // Flow-Tab Switching
+  document.querySelectorAll('.flow-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const flow = tab.getAttribute('data-flow');
+      document.querySelectorAll('.flow-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.inbox-list').forEach(l => l.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('list-' + flow).classList.add('active');
+      // open first mail of this flow
+      const firstMail = document.querySelector('#list-' + flow + ' .inbox-item');
+      if (firstMail) {
+        const mailId = firstMail.getAttribute('data-mail');
+        document.querySelectorAll('.inbox-item').forEach(i => i.classList.remove('active'));
+        firstMail.classList.add('active');
+        document.querySelectorAll('.mail-view').forEach(m => m.classList.remove('active'));
+        const mailView = document.getElementById(mailId);
+        if (mailView) mailView.classList.add('active');
+      }
+    });
+  });
+
+  // Mail-Item Switching
+  document.querySelectorAll('.inbox-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const mailId = item.getAttribute('data-mail');
+      document.querySelectorAll('.inbox-item').forEach(i => i.classList.remove('active'));
+      item.classList.add('active');
+      document.querySelectorAll('.mail-view').forEach(m => m.classList.remove('active'));
+      const mailView = document.getElementById(mailId);
+      if (mailView) mailView.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>

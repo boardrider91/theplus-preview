@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Die Gründer — Nico Schinowski &amp; David Adam | + the plus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300..700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <style>
+    .founder-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(40px, 7vw, 96px);
+      align-items: center;
+    }
+    .founder-block.reverse .founder-ph { order: 2; }
+    .founder-block.reverse .founder-text { order: 1; }
+    .founder-ph {
+      min-height: 560px;
+    }
+    .founder-text h2 {
+      font-size: clamp(32px, 4vw, 56px);
+      margin-bottom: 16px;
+      letter-spacing: -0.025em;
+    }
+    .founder-subtitle {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 32px;
+      display: block;
+    }
+    .founder-text p {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--ink-soft);
+      margin-bottom: 16px;
+    }
+    .credentials-list {
+      margin-top: 32px;
+      padding-top: 32px;
+      border-top: 1px solid var(--divider);
+    }
+    .credentials-list h4 {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 20px;
+    }
+    .credentials-list ul {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px 32px;
+    }
+    .credentials-list li {
+      font-size: 14px;
+      color: var(--ink-soft);
+      padding-left: 20px;
+      position: relative;
+      line-height: 1.5;
+    }
+    .credentials-list li::before {
+      content: "·";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    @media (max-width: 900px) {
+      .founder-block { grid-template-columns: 1fr; }
+      .founder-block.reverse .founder-ph { order: 1; }
+      .founder-block.reverse .founder-text { order: 2; }
+      .credentials-list ul { grid-template-columns: 1fr; }
+    }
+    .story-timeline {
+      display: grid;
+      gap: 0;
+      border-top: 1px solid var(--divider);
+    }
+    .story-item {
+      padding: 48px 0;
+      border-bottom: 1px solid var(--divider);
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .story-year {
+      font-family: var(--font-display);
+      font-size: 40px;
+      color: var(--accent);
+      font-weight: 300;
+      line-height: 1;
+    }
+    .story-item h3 {
+      font-size: 24px;
+      margin-bottom: 12px;
+      font-weight: 400;
+    }
+    .story-item p {
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--ink-soft);
+    }
+    @media (max-width: 768px) {
+      .story-item { grid-template-columns: 1fr; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="preview-notice"><a href="index.html">← Preview-Hub</a></div>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href="index.html" class="site-logo"><span class="plus">+</span> the plus</a>
+    <nav class="site-nav">
+      <a href="homepage.html">Homepage</a>
+      <a href="product-base.html">base.</a>
+      <a href="inhaltsstoffe.html">Inhaltsstoffe</a>
+      <a href="insights.html">Insights</a>
+      <a href="gruender.html" class="active">Gründer</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow">Die Gründer</span>
+    <h1 class="h1-tripart">
+      <span>Nico Schinowski</span>
+      <span style="font-style: italic; font-weight: 300;">&amp; David Adam.</span>
+    </h1>
+    <p class="lead" style="margin-top: 48px; max-width: 720px;">
+      Ein Performance-Coach mit zehn Lizenzen und 100+ Klienten. Ein Unternehmer, der selbst die Zielgruppe ist. Zwei Menschen, die base. jeden Tag nehmen — seit der ersten Charge.
+    </p>
+  </div>
+</section>
+
+<!-- ORIGIN -->
+<section class="section-alt">
+  <div class="container-narrow">
+    <span class="eyebrow">Die Geschichte</span>
+    <h2>Wie + the plus entstanden ist.</h2>
+
+    <p class="lead" style="margin-top: 48px;">
+      Die Idee zu base. entstand nicht am Reißbrett. Sie entstand in einem Gym in Karlsruhe, zwischen zwei Männern, die sich regelmäßig trafen — nicht, um zu reden, sondern um zu trainieren.
+    </p>
+
+    <p class="lead" style="margin-top: 24px;">
+      Seit 2023 ist Nico Schinowski Davids Personal Trainer. In ihren Sessions ging es nicht nur um Physis. Es ging um das Gesamtbild: Ernährung, Schlaf, Stress, Regeneration. Aus diesen Gesprächen wuchs eine gemeinsame Überzeugung — dass anspruchsvolle Menschen Lösungen verdienen, die ihrem eigenen Standard entsprechen.
+    </p>
+
+    <p class="lead" style="margin-top: 24px;">
+      Als sie feststellten, dass es kein Supplement auf dem europäischen Markt gab, das sie beide guten Gewissens empfehlen konnten — kein ernsthaftes Kognitions-Produkt, kein konsolidierter All-in-One, nichts mit studienbasierten Dosierungen — haben sie entschieden, es selbst zu entwickeln.
+    </p>
+  </div>
+</section>
+
+<!-- NICO -->
+<section>
+  <div class="container-wide">
+    <div class="founder-block">
+      <div class="founder-ph">
+        <div class="img-box img-box-portrait" style="min-height: 560px;">
+          <img src="assets/images/people/03_male_creative_director.png" alt="Nico Schinowski — Performance Coach" />
+        </div>
+      </div>
+      <div class="founder-text">
+        <span class="founder-subtitle">Co-Founder · Performance Coach</span>
+        <h2>Nico Schinowski.</h2>
+
+        <p>
+          Nico ist die wissenschaftliche und praktische Leitung hinter der Formel von base.
+        </p>
+        <p>
+          Acht Jahre Militärdienst haben ihm gezeigt, was Leistung unter extremem Druck bedeutet — nicht als Theorie, sondern als tägliche Realität. Nach seiner Zeit als Ex-Soldat und Ex-Feuerwehrmann hat er sich der Frage gewidmet, die ihn seither trägt: Wie hält ein Mensch Höchstleistung auf Dauer durch, ohne dabei kaputt zu gehen?
+        </p>
+        <p>
+          Die Antwort hat Nico über Jahre systematisch erarbeitet — in zehn Weiterbildungen, in 100+ 1:1-Coachings, im täglichen Umgang mit Menschen, deren Körper ihr wichtigstes Asset ist: Unternehmer, Führungskräfte, Sportler, Ärzte. Seit Jahren betreibt er seine Personal-Training-Praxis in Karlsruhe und Bruchsal.
+        </p>
+        <p>
+          Was bei seinen Klienten funktioniert, fließt in jede Formulierungs-Entscheidung bei base.
+        </p>
+
+        <div class="credentials-list">
+          <h4>Qualifikationen &amp; Lizenzen</h4>
+          <ul>
+            <li>8 Jahre Militärdienst (Ex-Soldat)</li>
+            <li>Ex-Feuerwehrmann</li>
+            <li>Fitnesstrainer A-Lizenz (höchste deutsche)</li>
+            <li>Fitnesstrainer B-Lizenz</li>
+            <li>Personal Trainer Lizenz</li>
+            <li>Ernährungsberater Lizenz</li>
+            <li>Reha Trainer A-Lizenz</li>
+            <li>Functional Trainer Level 1 &amp; 2</li>
+            <li>Hormon Coach Ausbildung</li>
+            <li>Strength Coach</li>
+            <li>Fachkraft Betriebliches Gesundheitsmanagement</li>
+            <li>Lehrschein Rettungsschwimmen</li>
+          </ul>
+        </div>
+
+        <p class="muted" style="margin-top: 32px; font-style: italic; font-size: 15px;">
+          Nicos eigene Coaching-Praxis: <a href="https://www.nicoschinowski.de" style="color: var(--accent); border-bottom: 1px solid var(--accent);">nicoschinowski.de</a> · Karlsruhe &amp; Bruchsal · 100+ 1:1-Klienten
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DAVID -->
+<section class="section-alt">
+  <div class="container-wide">
+    <div class="founder-block reverse">
+      <div class="founder-ph">
+        <div class="img-box img-box-portrait" style="min-height: 560px;">
+          <img src="assets/images/people/01_male_founder.png" alt="David Adam — Co-Founder und CEO" />
+        </div>
+      </div>
+      <div class="founder-text">
+        <span class="founder-subtitle">Co-Founder &amp; CEO</span>
+        <h2>David Adam.</h2>
+
+        <p>
+          David ist der strategische und operative Kopf hinter + the plus als Marke und Unternehmen.
+        </p>
+        <p>
+          Unternehmer, Vater, seit Jahren selbst die Zielgruppe, für die base. gebaut ist. Davids Hintergrund ist strategisches Markenverständnis und digitale Expertise — die Disziplinen, die nötig sind, um ein Premium-Produkt im deutschsprachigen Markt zu etablieren, ohne in den typischen Supplement-Kategorie-Fehlern zu landen (laut, jung, biohack-kompliziert).
+        </p>
+        <p>
+          David hat 2023 Nico als seinen Personal Trainer gewählt — nicht umgekehrt. Aus den gemeinsamen Sessions, in denen es ebenso oft um Business-Pressures wie um Trainings-Pläne ging, wuchs die Idee zu + the plus.
+        </p>
+        <p>
+          Davids Rolle: die Marke bauen, den Markt verstehen, das Produkt so ausliefern, wie High Performer es erwarten — ohne dabei die wissenschaftlichen Prinzipien zu verwässern, die Nico aus seiner Praxis einbringt.
+        </p>
+
+        <div class="credentials-list">
+          <h4>Hintergrund</h4>
+          <ul>
+            <li>Unternehmer seit mehreren Jahren</li>
+            <li>Strategisches Markenverständnis</li>
+            <li>Digitale Expertise (Brand, Shop, Performance)</li>
+            <li>Familienvater</li>
+            <li>Selbst Zielgruppe: 35–55, Verantwortung für Menschen und Zahlen</li>
+            <li>Nimmt base. täglich — seit der ersten Charge</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY / PHILOSOPHIE -->
+<section>
+  <div class="container-narrow">
+    <span class="eyebrow">Die Überzeugung</span>
+    <h2>Warum wir base. gebaut haben.</h2>
+
+    <p class="lead" style="margin-top: 48px;">
+      Es gab bereits tausend Supplements auf dem Markt, als wir angefangen haben. Das war uns klar. Was es nicht gab, war eine Option, die drei Dinge gleichzeitig erfüllt:
+    </p>
+
+    <ol style="list-style: none; counter-reset: reasons; margin: 40px 0; padding-left: 0;">
+      <li style="counter-increment: reasons; padding: 20px 0; border-bottom: 1px solid var(--divider); font-size: 18px; line-height: 1.6; position: relative; padding-left: 48px;">
+        <span style="position: absolute; left: 0; top: 20px; font-family: var(--font-display); font-size: 20px; color: var(--accent); font-style: italic;">01</span>
+        <strong style="color: var(--ink);">Studienbasierte Dosierungen</strong> — nicht EU-Referenz-Minimaldosen, sondern die Mengen, bei denen Studien Wirkung zeigen.
+      </li>
+      <li style="counter-increment: reasons; padding: 20px 0; border-bottom: 1px solid var(--divider); font-size: 18px; line-height: 1.6; position: relative; padding-left: 48px;">
+        <span style="position: absolute; left: 0; top: 20px; font-family: var(--font-display); font-size: 20px; color: var(--accent); font-style: italic;">02</span>
+        <strong style="color: var(--ink);">Kognition + Longevity als ein System</strong> — nicht entweder/oder, sondern beides aus einer Formel.
+      </li>
+      <li style="counter-increment: reasons; padding: 20px 0; border-bottom: 1px solid var(--divider); font-size: 18px; line-height: 1.6; position: relative; padding-left: 48px;">
+        <span style="position: absolute; left: 0; top: 20px; font-family: var(--font-display); font-size: 20px; color: var(--accent); font-style: italic;">03</span>
+        <strong style="color: var(--ink);">Einfachheit in der Anwendung</strong> — zwei Kapseln am Morgen, kein Shake, keine Pulver-Routine, keine tägliche Entscheidung.
+      </li>
+    </ol>
+
+    <p class="lead" style="margin-top: 48px;">
+      Also haben wir es selbst gebaut. Nicht, weil wir der Markt brauchte. Sondern weil wir es selbst nehmen wollten.
+    </p>
+
+    <p class="lead muted" style="margin-top: 24px;">
+      Dass es jetzt viele Menschen mit ähnlichen Anforderungen nehmen — ist das schönste Outcome, das aus einem Entwicklungs-Projekt entstehen konnte.
+    </p>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="section-alt">
+  <div class="container">
+    <div class="text-center mx-auto" style="max-width: 640px;">
+      <span class="eyebrow">Der Weg</span>
+      <h2>Von der Idee zum Produkt.</h2>
+    </div>
+
+    <div class="story-timeline" style="margin-top: var(--space-block);">
+
+      <div class="story-item">
+        <div class="story-year">2023</div>
+        <div>
+          <h3>Die Gespräche</h3>
+          <p>Nico wird Davids Personal Trainer. Aus ersten Trainings werden Gespräche über Gesundheit, Leistungsfähigkeit und die Herausforderungen des modernen Lebens. Die Einsicht: anspruchsvolle Menschen brauchen Lösungen, die ihrem eigenen Standard entsprechen — und der Markt liefert sie nicht.</p>
+        </div>
+      </div>
+
+      <div class="story-item">
+        <div class="story-year">2024</div>
+        <div>
+          <h3>Die Formulierung</h3>
+          <p>12 Monate Entwicklung. Literatur-Review von Studien, Dosierungsberechnungen, Auswahl von Premium-Wirkstoffen. Zusammenarbeit mit deutschen Produktionspartnern unter FSSC 22000-Standard. Prototypen, Verkostung, Optimierung. Die 29-Wirkstoff-Formel entsteht.</p>
+        </div>
+      </div>
+
+      <div class="story-item">
+        <div class="story-year">2025</div>
+        <div>
+          <h3>Der Launch</h3>
+          <p>Erste Charge wird produziert. David und Nico nehmen base. ab Tag 1 selbst. Brand-Entwicklung, Shop, erste Kunden. Die Grundlage für den deutschsprachigen Markt wird gelegt.</p>
+        </div>
+      </div>
+
+      <div class="story-item">
+        <div class="story-year">Heute</div>
+        <div>
+          <h3>Die Expansion</h3>
+          <p>+ the plus wird zur Plattform für Premium-Nahrungsergänzung. base. bleibt das Fundament — die Vision reicht weiter: eine ganzheitliche Marke, die alle Aspekte eines leistungsfähigen Lebens unterstützt.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DAILY ROUTINE -->
+<section>
+  <div class="container-narrow">
+    <span class="eyebrow">Wie wir base. nehmen</span>
+    <h2>Zwei Kapseln. Jeden Morgen. Seit der ersten Charge.</h2>
+
+    <p class="lead" style="margin-top: 48px;">
+      Es gibt einen Grund, warum das die einfachste Form von Qualitätskontrolle ist. Wenn die Gründer eines Produkts es nicht selbst täglich nehmen, musst du fragen warum. Bei base. ist die Antwort einfach: wir nehmen es, weil wir es für uns entwickelt haben.
+    </p>
+
+    <p class="lead muted" style="margin-top: 24px;">
+      Nico zum Frühstück, mit Kaffee und einem Proteinshake nach dem morgendlichen Training. David morgens um 7:30, nach dem ersten Espresso, vor dem ersten Meeting. Beide: zwei Kapseln, ein Glas Wasser, zehn Sekunden.
+    </p>
+
+    <p class="lead" style="margin-top: 24px;">
+      Das ist die Routine, die wir euch anbieten. Nicht mehr. Nicht weniger.
+    </p>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section class="section-dark">
+  <div class="container-narrow text-center">
+    <span class="eyebrow">Fragen an die Gründer</span>
+    <h2>Wir lesen jede Mail selbst.</h2>
+    <p class="lead" style="color: #D6D1C7; margin-top: 40px;">
+      Wenn du eine Frage hast — zum Produkt, zur Formulierung, zu Supplementierung im Allgemeinen — schreib uns. Wir antworten persönlich, meist innerhalb von 24 Stunden.
+    </p>
+    <div class="cta-row" style="justify-content: center; margin-top: 40px;">
+      <a href="mailto:hi@theplus.de" class="btn">hi@theplus.de</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section>
+  <div class="container text-center">
+    <h2 class="h1-tripart">
+      <span>Von uns. Für dich.</span>
+      <span style="font-style: italic; font-weight: 300;">Jeden Morgen.</span>
+    </h2>
+    <div class="cta-row" style="justify-content: center; margin-top: 48px;">
+      <a href="product-base.html" class="btn">base. bestellen</a>
+      <a href="insights.html" class="btn-link">Insights</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-tag">own your life.</div>
+    <p class="footer-copy">+ the plus nutrition GmbH · Karlsruhe</p>
+  </div>
+</footer>
+
+</body>
+</html>

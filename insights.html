@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Insights — Performance, Longevity, Wissenschaft | + the plus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300..700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <style>
+    .featured-article {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: clamp(40px, 6vw, 96px);
+      align-items: center;
+      padding: clamp(64px, 8vw, 120px) 0;
+    }
+    .featured-article .img-box {
+      aspect-ratio: 4 / 5;
+      min-height: 520px;
+    }
+    .featured-article .category {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 24px;
+      display: inline-block;
+    }
+    .featured-article h2 {
+      font-size: clamp(36px, 5vw, 64px);
+      line-height: 1.08;
+      letter-spacing: -0.025em;
+      font-weight: 400;
+      margin-bottom: 24px;
+    }
+    .featured-article p {
+      font-size: 18px;
+      line-height: 1.65;
+      color: var(--ink-soft);
+      margin-bottom: 24px;
+    }
+    .meta-row {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      font-size: 13px;
+      color: var(--ink-muted);
+      letter-spacing: 0.03em;
+      margin-top: 24px;
+    }
+    .meta-row .dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--ink-muted);
+    }
+    @media (max-width: 900px) {
+      .featured-article { grid-template-columns: 1fr; }
+    }
+
+    .filter-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: var(--space-block);
+      padding: 0 clamp(24px, 5vw, 80px);
+      max-width: var(--w-wide);
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .filter-chip {
+      padding: 10px 22px;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--ink-muted);
+      border: 1px solid var(--divider);
+      background: transparent;
+      transition: all 0.25s var(--ease);
+      cursor: pointer;
+      border-radius: 100px;
+    }
+    .filter-chip:hover {
+      color: var(--ink);
+      border-color: var(--ink);
+    }
+    .filter-chip.active {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: var(--bg);
+    }
+
+    .article-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(32px, 4vw, 56px);
+    }
+    @media (max-width: 900px) { .article-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px) { .article-grid { grid-template-columns: 1fr; } }
+
+    .article-card {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.25s var(--ease);
+    }
+    .article-card:hover {
+      color: inherit;
+    }
+    .article-card:hover .img-box img {
+      transform: scale(1.02);
+    }
+    .article-card .img-box {
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+    }
+    .article-card .img-box img {
+      transition: transform 0.5s var(--ease);
+    }
+    .article-card .category {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .article-card h3 {
+      font-family: var(--font-display);
+      font-size: 24px;
+      line-height: 1.25;
+      font-weight: 400;
+      letter-spacing: -0.015em;
+    }
+    .article-card p {
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--ink-muted);
+    }
+    .article-card .meta-row {
+      font-size: 12px;
+      margin-top: auto;
+    }
+
+    .newsletter-block {
+      background: var(--bg-dark);
+      color: #F3F1EC;
+      padding: clamp(80px, 10vw, 140px) 0;
+      text-align: center;
+    }
+    .newsletter-block h2 { color: #F3F1EC; }
+    .newsletter-block p { color: #D6D1C7; }
+    .newsletter-form {
+      display: flex;
+      gap: 12px;
+      max-width: 480px;
+      margin: 48px auto 0;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .newsletter-form input {
+      flex: 1;
+      min-width: 240px;
+      padding: 16px 24px;
+      background: transparent;
+      border: 1px solid #2A302B;
+      color: #F3F1EC;
+      font-family: var(--font-body);
+      font-size: 14px;
+      border-radius: 100px;
+      letter-spacing: 0.03em;
+    }
+    .newsletter-form input:focus {
+      outline: none;
+      border-color: var(--accent-lift, #6B7C50);
+    }
+    .newsletter-form .btn {
+      background: #F3F1EC;
+      color: var(--ink);
+      border-color: #F3F1EC;
+    }
+  </style>
+</head>
+<body>
+
+<div class="preview-notice"><a href="index.html">← Preview-Hub</a></div>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href="index.html" class="site-logo"><span class="plus">+</span> the plus</a>
+    <nav class="site-nav">
+      <a href="homepage.html">Homepage</a>
+      <a href="product-base.html">base.</a>
+      <a href="inhaltsstoffe.html">Inhaltsstoffe</a>
+      <a href="insights.html" class="active">Insights</a>
+      <a href="gruender.html">Gründer</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container text-center">
+    <span class="eyebrow">Insights</span>
+    <h1 class="h1-tripart">
+      <span>Wissen, das</span>
+      <span style="font-style: italic; font-weight: 300;">nicht verfällt.</span>
+    </h1>
+    <p class="lead muted" style="margin-top: 40px; max-width: 640px; margin-left: auto; margin-right: auto;">
+      Redaktionelle Inhalte zu Performance, Longevity und der Wissenschaft, die dahinter steht. Für Menschen, die verstehen wollen, bevor sie konsumieren.
+    </p>
+  </div>
+</section>
+
+<!-- FEATURED ARTICLE -->
+<section class="section-alt">
+  <div class="container-wide">
+    <div class="featured-article">
+      <div class="img-box">
+        <img src="assets/images/lifestyle/editorial/boardroom-confidence.png" alt="Featured Article" />
+      </div>
+      <div>
+        <span class="category">Kognition · 12 Min. Lesezeit</span>
+        <h2>Warum dein Gehirn 20 % deiner Energie verbraucht — und was das für Entscheidungs-Qualität bedeutet.</h2>
+        <p>Das Gehirn macht 2 % deines Körpergewichts aus. Es verbraucht 20 % deiner Energie. In keinem anderen Organ ist das Verhältnis zwischen Größe und Energiebedarf auch nur annähernd so extrem. Ein Überblick darüber, was das biologisch bedeutet — und warum daraus folgt, dass Unterversorgung sich zuerst als Konzentrationsverlust zeigt.</p>
+        <a href="#" class="btn-link">Artikel lesen</a>
+        <div class="meta-row">
+          <span>Nico Schinowski</span>
+          <span class="dot"></span>
+          <span>März 2026</span>
+          <span class="dot"></span>
+          <span>Wissenschaft</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FILTER -->
+<section style="padding-top: var(--space-block); padding-bottom: 0;">
+  <div class="text-center" style="margin-bottom: 48px;">
+    <span class="eyebrow">Alle Artikel</span>
+    <h2 style="margin-top: 8px;">Themen, die wir vertiefen.</h2>
+  </div>
+
+  <div class="filter-row">
+    <button class="filter-chip active">Alle</button>
+    <button class="filter-chip">Kognition</button>
+    <button class="filter-chip">Longevity</button>
+    <button class="filter-chip">Performance</button>
+    <button class="filter-chip">Wissenschaft</button>
+    <button class="filter-chip">Unternehmer-Leben</button>
+    <button class="filter-chip">Supplement-Industrie</button>
+  </div>
+</section>
+
+<!-- ARTICLES -->
+<section style="padding-top: 0;">
+  <div class="container-wide">
+    <div class="article-grid">
+
+      <a href="#" class="article-card">
+        <div class="img-box">
+          <img src="assets/images/ingredients/ginkgo-botanical-portrait.png" alt="Phosphatidylserin" />
+        </div>
+        <span class="category">Kognition · 8 Min.</span>
+        <h3>Phosphatidylserin: der vergessene Baustein deiner Nervenzellen.</h3>
+        <p>In jeder Zellmembran deines Gehirns steckt Phosphatidylserin. Warum es trotzdem in 99 % aller Multivitamine fehlt — und was das für Gedächtnis und Konzentration bedeutet.</p>
+        <div class="meta-row">
+          <span>Nico Schinowski</span>
+          <span class="dot"></span>
+          <span>März 2026</span>
+        </div>
+      </a>
+
+      <a href="#" class="article-card">
+        <div class="img-box">
+          <img src="assets/images/ingredients/pqq.png" alt="Mitochondrien PQQ" />
+        </div>
+        <span class="category">Longevity · 10 Min.</span>
+        <h3>Mitochondrien-Biogenese: was wirklich hinter PQQ steckt.</h3>
+        <p>Dass Coenzym Q10 in Supplements steht, ist kein Geheimnis. Dass PQQ die Zahl der Mitochondrien in deinen Zellen erhöhen kann, schon. Wie das funktioniert — und wie Q10 und PQQ zusammen arbeiten.</p>
+        <div class="meta-row">
+          <span>Nico Schinowski</span>
+          <span class="dot"></span>
+          <span>März 2026</span>
+        </div>
+      </a>
+
+      <a href="#" class="article-card">
+        <div class="img-box">
+          <img src="assets/images/problem-solution/before-after-supplement-shelf.png" alt="Multivitamin-Dosis" />
+        </div>
+        <span class="category">Supplement-Industrie · 6 Min.</span>
+        <h3>Die EU-Referenzmenge ist nicht die Wirk-Dosis.</h3>
+        <p>Auf jedem Multivitamin steht „100 % der täglichen Referenzmenge". Das klingt beruhigend. Es verschweigt nur einen zentralen Punkt: die EU-Referenzmenge ist die Untergrenze, nicht die Wirkschwelle. Ein Erklärstück.</p>
+        <div class="meta-row">
+          <span>David Adam</span>
+          <span class="dot"></span>
+          <span>Februar 2026</span>
+        </div>
+      </a>
+
+      <a href="#" class="article-card">
+        <div class="img-box">
+          <img src="assets/images/lifestyle/editorial/man-travel-rimowa-landscape.png" alt="Long-Haul Travel" />
+        </div>
+        <span class="category">Performance · 9 Min.</span>
+        <h3>Was in zwölf Stunden Flughöhe mit deinen Zellen passiert.</h3>
+        <p>Jetlag ist das, was du spürst. Das, was du nicht spürst, ist messbar: erhöhte kosmische Strahlung, Dehydration unter fünf Prozent Luftfeuchtigkeit, gestörte Schlafzyklen. Was sich daraus summiert — und was sich dagegen tun lässt.</p>
+        <div class="meta-row">
+          <span>Nico Schinowski</span>
+          <span class="dot"></span>
+          <span>Februar 2026</span>
+        </div>
+      </a>
+
+      <a href="#" class="article-card">
+        <div class="img-box">
+          <img src="assets/images/lifestyle/daily/17_home_office_focus.png" alt="Compound Effect" />
+        </div>
+        <span class="category">Longevity · 11 Min.</span>
+        <h3>Der Compound Effect in der Gesundheit: die Mathematik hinter dreißig Jahren Fundament.</h3>
+        <p>Kleine tägliche Entscheidungen multiplizieren sich über Zeit. In Finanzen ist das selbstverständlich. In der Gesundheit nicht — obwohl die Physiologie exakt derselben Logik folgt. Eine Rechnung mit realen Zahlen.</p>
+        <div class="meta-row">
+          <span>David Adam</span>
+          <span class="dot"></span>
+          <span>Februar 2026</span>
+        </div>
+      </a>
+
+      <a href="#" class="article-card">
+        <div class="img-box">
+          <img src="assets/images/packshots/styled/jar-sunlight-balcony.jpg" alt="Warum wir keinen Rabatt geben" />
+        </div>
+        <span class="category">Unternehmer-Leben · 5 Min.</span>
+        <h3>Warum wir keinen Rabatt geben.</h3>
+        <p>Black Friday, Sommer-Sale, 50%-Aktionen — die klassischen Rabatt-Rhythmen der Konsumwelt. Warum + the plus bewusst darauf verzichtet, und was das mit Formulierung und Produktion zu tun hat.</p>
+        <div class="meta-row">
+          <span>David Adam</span>
+          <span class="dot"></span>
+          <span>Januar 2026</span>
+        </div>
+      </a>
+
+      <a href="#" class="article-card">
+        <div class="img-box">
+          <img src="assets/images/ingredients/vitamin-b12.png" alt="Methylcobalamin" />
+        </div>
+        <span class="category">Wissenschaft · 7 Min.</span>
+        <h3>Bioaktive Formen: was Methylcobalamin besser macht als Cyanocobalamin.</h3>
+        <p>Dein Körper kann Cyanocobalamin (die billige B12-Form) nur verarbeiten, indem er es zuerst in Methylcobalamin umwandelt. Bei manchen Menschen funktioniert diese Umwandlung gut, bei manchen schlecht. Warum Methylcobalamin die sichere Wahl ist.</p>
+        <div class="meta-row">
+          <span>Nico Schinowski</span>
+          <span class="dot"></span>
+          <span>Januar 2026</span>
+        </div>
+      </a>
+
+      <a href="#" class="article-card">
+        <div class="img-box">
+          <img src="assets/images/lifestyle/editorial/business-lounge.png" alt="Performance unter Druck" />
+        </div>
+        <span class="category">Performance · 10 Min.</span>
+        <h3>Performance unter Druck: Physiologie statt Willensstärke.</h3>
+        <p>„Reiß dich zusammen" ist keine Strategie, die unter echten Spitzen-Anforderungen länger als ein paar Minuten trägt. Was dann trägt, ist die Infrastruktur darunter: Schlaf, Blutzucker, Nährstoff-Status, Mikrovaskularisation. Ein Überblick.</p>
+        <div class="meta-row">
+          <span>Nico Schinowski</span>
+          <span class="dot"></span>
+          <span>Januar 2026</span>
+        </div>
+      </a>
+
+      <a href="#" class="article-card">
+        <div class="img-box">
+          <img src="assets/images/problem-solution/pill-pile-vs-base.png" alt="Grundversorgung vs Fundament" />
+        </div>
+        <span class="category">Kognition · 7 Min.</span>
+        <h3>Grundversorgung ist nicht Fundament.</h3>
+        <p>Ein Multivitamin deckt die Grundversorgung ab — das ist nicht nichts, aber es ist auch nicht das Fundament, auf dem ambitionierte Menschen ihre Tage bauen. Was den Unterschied macht, und warum die Kategorie bisher dazwischen fehlte.</p>
+        <div class="meta-row">
+          <span>David Adam</span>
+          <span class="dot"></span>
+          <span>Januar 2026</span>
+        </div>
+      </a>
+
+      <a href="#" class="article-card">
+        <div class="img-box">
+          <img src="assets/images/lifestyle/editorial/editorial-couple-breakfast-4x5.png" alt="Family Mode" />
+        </div>
+        <span class="category">Unternehmer-Leben · 6 Min.</span>
+        <h3>Nach 12 Stunden Office: die Biologie des Abends.</h3>
+        <p>Die meisten Unternehmer funktionieren abends noch. Das heißt nicht, dass sie präsent sind. Was nach einem langen Arbeitstag im Kopf biochemisch passiert — und warum Abendstunden mit der Familie oft die ehrlichste Auswertung eines Tages sind.</p>
+        <div class="meta-row">
+          <span>Nico Schinowski</span>
+          <span class="dot"></span>
+          <span>Dezember 2025</span>
+        </div>
+      </a>
+
+      <a href="#" class="article-card">
+        <div class="img-box">
+          <img src="assets/images/ingredients/astaxanthin.png" alt="Astaxanthin" />
+        </div>
+        <span class="category">Longevity · 8 Min.</span>
+        <h3>Astaxanthin: das einzige Antioxidans, das bis ins Gehirn gelangt.</h3>
+        <p>Vitamin C ist wasserlöslich, Vitamin E fettlöslich — beide erreichen das zentrale Nervensystem kaum. Astaxanthin dagegen passiert die Blut-Hirn-Schranke. Was diese biologische Besonderheit für Neuroprotektion bedeutet.</p>
+        <div class="meta-row">
+          <span>Nico Schinowski</span>
+          <span class="dot"></span>
+          <span>Dezember 2025</span>
+        </div>
+      </a>
+
+      <a href="#" class="article-card">
+        <div class="img-box">
+          <img src="assets/images/capsule/two-capsules-macro.png" alt="Qualitätsfaktoren" />
+        </div>
+        <span class="category">Supplement-Industrie · 9 Min.</span>
+        <h3>Proprietary Blends: warum die Industrie ihre Dosierungen versteckt.</h3>
+        <p>„Proprietary Blend: 850 mg Special Focus Complex" — klingt beeindruckend. Sagt nichts. Warum die Supplement-Industrie diese Praxis etabliert hat, und was Verbraucher wirklich wissen sollten, bevor sie kaufen.</p>
+        <div class="meta-row">
+          <span>David Adam</span>
+          <span class="dot"></span>
+          <span>Dezember 2025</span>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="text-center" style="margin-top: var(--space-block);">
+      <a href="#" class="btn-link">Weitere Artikel laden</a>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter-block">
+  <div class="container-narrow">
+    <span class="eyebrow">+ the plus Insights</span>
+    <h2>Monatlich einmal. Tiefe, keine Tricks.</h2>
+    <p class="lead" style="margin-top: 32px; max-width: 540px; margin-left: auto; margin-right: auto;">
+      Ein redaktioneller Newsletter für Menschen, die verstehen wollen. Keine Rabatt-Mails, keine Blinklicht-Aktionen, keine täglichen Pings. Ein Thema, einmal im Monat, zu Ende gedacht.
+    </p>
+    <form class="newsletter-form">
+      <input type="email" placeholder="deine@adresse.de" />
+      <button type="submit" class="btn">Abonnieren</button>
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-tag">own your life.</div>
+    <div class="footer-links">
+      <a href="homepage.html">Homepage</a>
+      <a href="product-base.html">base.</a>
+      <a href="inhaltsstoffe.html">Inhaltsstoffe</a>
+      <a href="insights.html">Insights</a>
+      <a href="gruender.html">Gründer</a>
+    </div>
+    <p class="footer-copy">+ the plus nutrition GmbH</p>
+  </div>
+</footer>
+
+</body>
+</html>

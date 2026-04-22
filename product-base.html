@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>base. — Klarheit, die bleibt. | + the plus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300..700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <style>
+    /* PDP-specific styles */
+    .pdp-hero {
+      padding: clamp(80px, 10vw, 140px) 0 clamp(48px, 5vw, 80px);
+    }
+    .pdp-hero-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(40px, 6vw, 96px);
+      align-items: center;
+    }
+    @media (max-width: 900px) {
+      .pdp-hero-layout { grid-template-columns: 1fr; }
+    }
+    .pdp-hero-layout .img-box {
+      aspect-ratio: 4 / 5;
+      min-height: 560px;
+    }
+
+    .pdp-buy-box {
+      background: var(--surface);
+      border: 1px solid var(--divider);
+      padding: 40px;
+      border-radius: 8px;
+      margin-top: 40px;
+    }
+    .pdp-buy-box .price-label {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 8px;
+    }
+    .pdp-buy-box .price-main {
+      font-family: var(--font-display);
+      font-size: 56px;
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+    }
+    .pdp-buy-box .price-unit {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--ink-muted);
+      margin-left: 8px;
+    }
+    .pdp-buy-box .price-sub {
+      font-size: 14px;
+      color: var(--ink-muted);
+      margin-top: 8px;
+    }
+    .pdp-buy-box .option-switch {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      margin: 24px 0;
+      border: 1px solid var(--divider);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .pdp-buy-box .option-btn {
+      padding: 16px 20px;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--ink-muted);
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.2s var(--ease);
+      text-align: center;
+    }
+    .pdp-buy-box .option-btn.active {
+      background: var(--ink);
+      color: var(--bg);
+    }
+    .pdp-buy-box .option-btn.active .option-save {
+      color: var(--bg);
+      opacity: 0.7;
+    }
+    .pdp-buy-box .option-save {
+      display: block;
+      font-size: 11px;
+      color: var(--accent);
+      margin-top: 2px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .pdp-buy-box .trust-inline {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 12px;
+      color: var(--ink-muted);
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--divider);
+    }
+    .pdp-buy-box .trust-inline span::before {
+      content: "✓";
+      color: var(--accent);
+      margin-right: 6px;
+      font-weight: 600;
+    }
+
+    .trust-bar-pdp {
+      background: var(--bg-alt);
+      padding: 28px 0;
+      border-top: 1px solid var(--divider);
+      border-bottom: 1px solid var(--divider);
+    }
+    .trust-bar-pdp-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(24px, 5vw, 64px);
+      flex-wrap: wrap;
+      max-width: var(--w-wide);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .trust-bar-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--ink);
+      letter-spacing: 0.02em;
+    }
+    .trust-bar-item strong { color: var(--ink); font-weight: 600; }
+    .trust-bar-item .trust-icon {
+      font-size: 18px;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    /* Benefit Section — Hintsa-Style */
+    .benefit-section {
+      padding: clamp(100px, 13vw, 180px) 0;
+    }
+    .benefit-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(40px, 7vw, 120px);
+      align-items: center;
+    }
+    .benefit-layout.reverse .benefit-text { order: 2; }
+    .benefit-layout.reverse .benefit-visual { order: 1; }
+    @media (max-width: 900px) {
+      .benefit-layout { grid-template-columns: 1fr; }
+      .benefit-layout.reverse .benefit-text { order: 1; }
+      .benefit-layout.reverse .benefit-visual { order: 2; }
+    }
+    .benefit-text h2 {
+      font-size: clamp(40px, 5.5vw, 72px);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      font-weight: 350;
+      margin-bottom: 32px;
+    }
+    .benefit-text h2 .accent {
+      font-style: italic;
+      color: var(--accent);
+      font-weight: 300;
+    }
+    .benefit-text p {
+      font-size: 18px;
+      line-height: 1.65;
+      color: var(--ink-soft);
+      margin-bottom: 16px;
+    }
+    .benefit-visual .img-box {
+      aspect-ratio: 4 / 5;
+      min-height: 520px;
+    }
+    .benefit-ingredient-list {
+      margin-top: 32px;
+      padding-top: 32px;
+      border-top: 1px solid var(--divider);
+      display: grid;
+      gap: 12px;
+    }
+    .benefit-ingredient-list li {
+      font-size: 15px;
+      color: var(--ink-soft);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 12px;
+      align-items: baseline;
+    }
+    .benefit-ingredient-list li strong {
+      color: var(--ink);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* Benefit Overview Grid */
+    .benefit-overview {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      margin-top: var(--space-block);
+      border-top: 1px solid var(--divider);
+      border-left: 1px solid var(--divider);
+    }
+    .benefit-overview-item {
+      padding: 48px 40px;
+      border-right: 1px solid var(--divider);
+      border-bottom: 1px solid var(--divider);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .benefit-overview-item .num {
+      font-family: var(--font-display);
+      font-size: 14px;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      font-style: italic;
+      font-weight: 500;
+    }
+    .benefit-overview-item h3 {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+    .benefit-overview-item p {
+      font-size: 14px;
+      color: var(--ink-soft);
+      line-height: 1.55;
+    }
+    @media (max-width: 900px) { .benefit-overview { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .benefit-overview { grid-template-columns: 1fr; } }
+
+    /* Synergy Grid */
+    .synergy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(24px, 3vw, 40px);
+      margin-top: var(--space-block);
+    }
+    @media (max-width: 900px) { .synergy-grid { grid-template-columns: 1fr; } }
+    .synergy-card {
+      padding: 40px 32px;
+      background: var(--surface);
+      border: 1px solid var(--divider);
+    }
+    .synergy-card .pair {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 400;
+      letter-spacing: -0.015em;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+    .synergy-card .pair-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .synergy-card p {
+      font-size: 14px;
+      color: var(--ink-soft);
+      line-height: 1.55;
+    }
+
+    .routine-step {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 32px;
+      padding: 40px 0;
+      border-bottom: 1px solid var(--divider);
+      align-items: start;
+    }
+    .routine-step:last-child { border-bottom: none; }
+    .routine-step .step-num {
+      font-family: var(--font-display);
+      font-size: 56px;
+      font-weight: 300;
+      color: var(--accent);
+      line-height: 1;
+      font-style: italic;
+    }
+    .routine-step h3 {
+      font-size: 26px;
+      margin-bottom: 12px;
+      font-weight: 400;
+    }
+    .routine-step p {
+      font-size: 16px;
+      color: var(--ink-soft);
+      line-height: 1.65;
+    }
+    @media (max-width: 600px) {
+      .routine-step { grid-template-columns: 1fr; gap: 8px; }
+    }
+
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(24px, 3vw, 40px);
+      margin-top: var(--space-block);
+    }
+    @media (max-width: 900px) { .review-grid { grid-template-columns: 1fr; } }
+    .review-card {
+      background: var(--surface);
+      padding: 40px 32px;
+      border: 1px solid var(--divider);
+      border-radius: 4px;
+    }
+    .review-stars {
+      color: var(--accent);
+      font-size: 18px;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+    .review-quote {
+      font-family: var(--font-display);
+      font-size: 19px;
+      line-height: 1.45;
+      color: var(--ink);
+      font-style: italic;
+      font-weight: 400;
+      margin-bottom: 24px;
+      letter-spacing: -0.01em;
+    }
+    .review-author {
+      font-size: 14px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+    .review-meta {
+      font-size: 12px;
+      color: var(--ink-muted);
+      letter-spacing: 0.04em;
+      margin-top: 4px;
+    }
+
+    .ship-return-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      margin-top: var(--space-block);
+      border-top: 1px solid var(--divider);
+      border-left: 1px solid var(--divider);
+    }
+    .ship-item {
+      padding: 40px 32px;
+      border-right: 1px solid var(--divider);
+      border-bottom: 1px solid var(--divider);
+    }
+    .ship-item h4 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 400;
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+    .ship-item p {
+      color: var(--ink-soft);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+    @media (max-width: 900px) { .ship-return-grid { grid-template-columns: 1fr; } }
+
+    .principle-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      margin-top: var(--space-block);
+      border-top: 1px solid var(--divider);
+      border-left: 1px solid var(--divider);
+    }
+    .principle-item {
+      padding: 48px 36px;
+      border-right: 1px solid var(--divider);
+      border-bottom: 1px solid var(--divider);
+    }
+    .principle-item .num {
+      font-family: var(--font-display);
+      font-size: 48px;
+      font-weight: 300;
+      color: var(--accent);
+      font-style: italic;
+      line-height: 1;
+      margin-bottom: 24px;
+    }
+    .principle-item h4 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 400;
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+    .principle-item p {
+      font-size: 14px;
+      color: var(--ink-soft);
+      line-height: 1.55;
+    }
+    @media (max-width: 900px) { .principle-row { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .principle-row { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<div class="preview-notice"><a href="index.html">← Preview-Hub</a></div>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href="index.html" class="site-logo"><span class="plus">+</span> the plus</a>
+    <nav class="site-nav">
+      <a href="homepage.html">Homepage</a>
+      <a href="product-base.html" class="active">base.</a>
+      <a href="inhaltsstoffe.html">Inhaltsstoffe</a>
+      <a href="insights.html">Insights</a>
+      <a href="gruender.html">Gründer</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO + BUY-BOX -->
+<section class="pdp-hero">
+  <div class="container-wide">
+    <div class="pdp-hero-layout">
+      <div>
+        <span class="eyebrow">Performance Foundation · Made in Germany</span>
+        <h1 style="font-family: var(--font-display); font-size: clamp(96px, 14vw, 200px); line-height: 0.9; letter-spacing: -0.06em; font-weight: 350; color: var(--ink); margin-top: 24px;">base.</h1>
+        <p style="font-family: var(--font-display); font-size: clamp(26px, 3vw, 40px); font-style: italic; font-weight: 300; color: var(--accent); margin-top: 32px; letter-spacing: -0.02em; line-height: 1.15;">
+          Klarheit, die bleibt.
+        </p>
+        <p class="lead" style="margin-top: 40px; max-width: 540px;">
+          Die tägliche Formel für Kognition und Longevity — entwickelt aus der Arbeit mit 100+ Klienten, hergestellt in Deutschland unter FSSC 22000.
+        </p>
+
+        <div class="pdp-buy-box">
+          <div class="price-label">Monats-Abo · Empfehlung</div>
+          <div>
+            <span class="price-main">49&nbsp;€</span>
+            <span class="price-unit">/ Monat · 1,63&nbsp;€ pro Tag</span>
+          </div>
+          <div class="price-sub">17 % Ersparnis gegenüber Einmalkauf · Mindestlaufzeit 3 Lieferungen · Danach jederzeit kündbar</div>
+
+          <div class="option-switch">
+            <button class="option-btn active">
+              Monats-Abo
+              <span class="option-save">49 € · spart 17 %</span>
+            </button>
+            <button class="option-btn">
+              Einmalkauf
+              <span class="option-save">59 €</span>
+            </button>
+          </div>
+
+          <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+            <a href="#pricing" class="btn" style="flex: 1; min-width: 200px;">In den Warenkorb</a>
+            <a href="#pricing" class="btn btn-ghost">Alle Optionen</a>
+          </div>
+
+          <div class="trust-inline">
+            <span>60 Kapseln · 30 Tage</span>
+            <span>Lieferung 1–4 Werktage</span>
+            <span>30 Tage Geld-zurück</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="img-box">
+          <img src="assets/images/packshots/styled/01_marble_morning.png" alt="base. — Produktshot auf Marmor, Morgenlicht" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar-pdp">
+  <div class="trust-bar-pdp-inner">
+    <div class="trust-bar-item"><span class="trust-icon">✓</span><span>Made in Germany · <strong>FSSC 22000</strong></span></div>
+    <div class="trust-bar-item"><span class="trust-icon">✓</span><span><strong>Laborgeprüft</strong> je Charge</span></div>
+    <div class="trust-bar-item"><span class="trust-icon">✓</span><span><strong>100 % vegan</strong> · HPMC-Kapseln</span></div>
+    <div class="trust-bar-item"><span class="trust-icon">✓</span><span><strong>30 Tage</strong> Geld-zurück</span></div>
+    <div class="trust-bar-item"><span class="trust-icon">✓</span><span><strong>Versandkostenfrei</strong></span></div>
+  </div>
+</div>
+
+<!-- BENEFIT OVERVIEW — Hintsa-Style Claims -->
+<section class="section-alt">
+  <div class="container-wide">
+    <div class="text-center mx-auto" style="max-width: 720px;">
+      <span class="eyebrow">Was base. für dich leistet</span>
+      <h2>Vier Dimensionen. Ein Fundament.</h2>
+      <p class="lead muted" style="margin-top: 40px;">
+        Leistung baut nicht auf einer einzelnen Intervention auf. Sie entsteht, wenn vier Dinge gleichzeitig stimmen — jeden Tag, konsistent, ohne Lücken.
+      </p>
+    </div>
+
+    <div class="benefit-overview">
+      <a href="#benefit-klarheit" class="benefit-overview-item" style="text-decoration: none; color: inherit;">
+        <span class="num">01 · Kognition</span>
+        <h3>Klarheit, die trägt.</h3>
+        <p>Phosphatidylserin, Cholin, Ginkgo und B-Komplex für Fokus und Gedächtnis — auch nach Stunden am Schreibtisch.</p>
+      </a>
+      <a href="#benefit-energie" class="benefit-overview-item" style="text-decoration: none; color: inherit;">
+        <span class="num">02 · Zellenergie</span>
+        <h3>Energie, die bleibt.</h3>
+        <p>Q10 und PQQ unterstützen die Mitochondrien — die Zellkraftwerke hinter konstanter Kapazität über den Tag.</p>
+      </a>
+      <a href="#benefit-schutz" class="benefit-overview-item" style="text-decoration: none; color: inherit;">
+        <span class="num">03 · Zellschutz</span>
+        <h3>Schutz, der wirkt.</h3>
+        <p>Astaxanthin, Vitamin C, E, Selen und Zink — das mehrstufige Antioxidantien-Schutzschild gegen oxidative Belastung.</p>
+      </a>
+      <a href="#benefit-fundament" class="benefit-overview-item" style="text-decoration: none; color: inherit;">
+        <span class="num">04 · Fundament</span>
+        <h3>Eine Dose statt zehn.</h3>
+        <p>13 Vitamine, 9 Mineralstoffe in bioaktiven Formen. Schließt die Lücken, die dein Alltag lässt.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFIT 1 — KLARHEIT -->
+<section class="benefit-section" id="benefit-klarheit">
+  <div class="container-wide">
+    <div class="benefit-layout">
+      <div class="benefit-text">
+        <span class="eyebrow">Benefit 01 · Kognition</span>
+        <h2>Klarheit,<br /><span class="accent">die trägt.</span></h2>
+        <p>
+          Dein Gehirn verbraucht 20 % deiner Energie, obwohl es nur 2 % deines Körpergewichts ausmacht. Es ist das anspruchsvollste Organ — und das am schnellsten unterversorgte.
+        </p>
+        <p>
+          Wenn Kognition die Währung deines Tages ist, braucht dein Gehirn Bausteine, die in Standard-Multivitaminen selten vorkommen. Phosphatidylserin für die Membranen der Nervenzellen. Cholin als Vorstufe von Acetylcholin, dem Neurotransmitter für Konzentration. Ginkgo für die zerebrale Durchblutung.
+        </p>
+
+        <ul class="benefit-ingredient-list">
+          <li><strong>Phosphatidylserin · 150 mg</strong><span>Studien-Wirkdosis für Gedächtnis und Fokus.</span></li>
+          <li><strong>Cholin · 85 mg</strong><span>90 % der Europäer sind laut EFSA unterversorgt.</span></li>
+          <li><strong>Ginkgo biloba · 50 mg</strong><span>Standardisierter Extrakt, 24 % Flavone / 6 % Lactone.</span></li>
+          <li><strong>B-Komplex · bioaktiv</strong><span>Pantothensäure trägt zu normaler geistiger Leistung bei.¹</span></li>
+        </ul>
+      </div>
+      <div class="benefit-visual">
+        <div class="img-box">
+          <img src="assets/images/lifestyle/daily/17_home_office_focus.png" alt="Fokussierte Arbeit am Schreibtisch" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFIT 2 — ENERGIE -->
+<section class="benefit-section section-alt" id="benefit-energie">
+  <div class="container-wide">
+    <div class="benefit-layout reverse">
+      <div class="benefit-text">
+        <span class="eyebrow">Benefit 02 · Zellenergie</span>
+        <h2>Energie,<br /><span class="accent">die bleibt.</span></h2>
+        <p>
+          Jede Zelle in deinem Körper produziert ATP in den Mitochondrien. Diese Energiewährung ist die Grundlage für alles — von Muskelleistung über Konzentration bis zum Herzschlag. Ab dem 25. Lebensjahr sinkt die körpereigene Produktion messbar.
+        </p>
+        <p>
+          base. adressiert die mitochondriale Funktion an zwei Stellen: optimieren, was da ist, und neu bilden, was abnimmt. Keine Stimulation. Kein Koffein. Substrat statt Adrenalin.
+        </p>
+
+        <ul class="benefit-ingredient-list">
+          <li><strong>Coenzym Q10 · 50 mg</strong><span>Zentral für die mitochondriale ATP-Produktion.</span></li>
+          <li><strong>PQQ · 500 µg · MGCPQQ®</strong><span>Fördert die Neubildung von Mitochondrien.</span></li>
+          <li><strong>Magnesium · 60 mg</strong><span>Trimagnesiumdicitrat — gut verträglich.</span></li>
+          <li><strong>B-Komplex</strong><span>8 Inhaltsstoffe tragen zur Verringerung von Müdigkeit bei.¹</span></li>
+        </ul>
+      </div>
+      <div class="benefit-visual">
+        <div class="img-box">
+          <img src="assets/images/ingredients/pqq.png" alt="PQQ (MGCPQQ®) — Mitochondrien-Biogenese" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFIT 3 — SCHUTZ -->
+<section class="benefit-section" id="benefit-schutz">
+  <div class="container-wide">
+    <div class="benefit-layout">
+      <div class="benefit-text">
+        <span class="eyebrow">Benefit 03 · Zellschutz</span>
+        <h2>Schutz,<br /><span class="accent">der wirkt.</span></h2>
+        <p>
+          Leistung erzeugt Belastung. Jeder Tag unter Druck produziert reaktive Sauerstoffspezies — ein Nebeneffekt von Stoffwechsel, Stress und mentaler Arbeit. Normal, aber kumulativ. Die Rechnung kommt in 10, 20, 30 Jahren.
+        </p>
+        <p>
+          Der Schutz-Komplex in base. ist mehrstufig gebaut: Astaxanthin als einziges Antioxidans, das die Blut-Hirn-Schranke passiert. Vitamin C und E im Recycling-Zyklus. Selen, Zink und Kupfer als Co-Faktoren der körpereigenen Schutzenzyme.
+        </p>
+
+        <ul class="benefit-ingredient-list">
+          <li><strong>Astaxanthin · 3 mg</strong><span>Einziges Carotinoid mit Hirn-Gängigkeit.</span></li>
+          <li><strong>Vitamin C · 80 mg</strong><span>Regeneriert verbrauchtes Vitamin E.¹</span></li>
+          <li><strong>Vitamin E · 12 mg</strong><span>Membran-Antioxidans.¹</span></li>
+          <li><strong>Selen + Zink + Kupfer + Mangan</strong><span>Co-Faktoren der körpereigenen Schutz-Enzyme.¹</span></li>
+        </ul>
+      </div>
+      <div class="benefit-visual">
+        <div class="img-box">
+          <img src="assets/images/ingredients/astaxanthin.png" alt="Astaxanthin aus Blutregenalge" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFIT 4 — FUNDAMENT -->
+<section class="benefit-section section-alt" id="benefit-fundament">
+  <div class="container-wide">
+    <div class="benefit-layout reverse">
+      <div class="benefit-text">
+        <span class="eyebrow">Benefit 04 · Fundament</span>
+        <h2>Eine Dose<br /><span class="accent">statt zehn.</span></h2>
+        <p>
+          Multivitamin, Magnesium, Vitamin D3, K2, Q10, B-Komplex, Zink, Omega-Kapseln — der typische Pillenschrank eines gesundheitsbewussten Menschen hat schnell acht bis zehn Produkte. Die Hälfte vergisst man regelmäßig.
+        </p>
+        <p>
+          base. schließt die Lücken, die dein Alltag lässt — mit einer einzigen Dose, zwei Kapseln am Morgen. Alle Vitamine und Mineralstoffe in bioaktiven, direkt verwertbaren Formen. Methylcobalamin statt Cyanocobalamin. Bisglycinat statt Zinkoxid. MK-7 statt K1.
+        </p>
+
+        <ul class="benefit-ingredient-list">
+          <li><strong>13 Vitamine</strong><span>Vollständiger B-Komplex, A, C, D3, E, K2 — bioaktiv.</span></li>
+          <li><strong>9 Mineralstoffe</strong><span>Magnesium, Zink, Selen, Chrom, Kupfer, Mangan, Molybdän, Bor, Silicium.</span></li>
+          <li><strong>Vitamin D3 · 20 µg</strong><span>Aus Flechten, 100 % vegan, 800 IE.</span></li>
+          <li><strong>Vitamin K2 · MK-7 · 75 µg</strong><span>Längste Halbwertszeit aller K-Formen.</span></li>
+        </ul>
+      </div>
+      <div class="benefit-visual">
+        <div class="img-box">
+          <img src="assets/images/problem-solution/before-after-supplement-shelf.png" alt="Vorher: acht Dosen. Nachher: base." />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIE SYNERGIE -->
+<section>
+  <div class="container-wide">
+    <div class="text-center mx-auto" style="max-width: 720px;">
+      <span class="eyebrow">Die Synergie</span>
+      <h2>Jeder Wirkstoff allein funktioniert.<br /><span style="font-style: italic; color: var(--accent);">Zusammen erst trägt das Fundament.</span></h2>
+      <p class="lead muted" style="margin-top: 40px;">
+        In base. sind 19 wissenschaftlich dokumentierte Wirkstoff-Synergien vereint. Das ist das Argument für eine Komplett-Formulierung gegenüber einem selbst zusammengebauten Einzel-Stack.
+      </p>
+    </div>
+
+    <div class="synergy-grid">
+      <div class="synergy-card">
+        <div class="pair-label">Säule 2 + 3</div>
+        <div class="pair">Q10 + PQQ</div>
+        <p>Q10 optimiert bestehende Mitochondrien, PQQ bildet neue. Kombiniert zeigen Studien verstärkte kognitive Effekte gegenüber den Einzelsubstanzen.</p>
+      </div>
+      <div class="synergy-card">
+        <div class="pair-label">Säule 4</div>
+        <div class="pair">D3 + K2</div>
+        <p>D3 hebt den Calcium-Spiegel. K2 lenkt Calcium dorthin, wo es hingehört — in die Knochen, nicht in die Arterien.</p>
+      </div>
+      <div class="synergy-card">
+        <div class="pair-label">Säule 3</div>
+        <div class="pair">Vitamin C + E</div>
+        <p>Antioxidatives Recycling. Vitamin E fängt Radikale in Zellmembranen ab. Vitamin C regeneriert verbrauchtes Vitamin E.</p>
+      </div>
+      <div class="synergy-card">
+        <div class="pair-label">Säule 1 + 2</div>
+        <div class="pair">Phosphatidylserin + Ginkgo</div>
+        <p>PS stabilisiert Nervenzellmembranen. Ginkgo verbessert die Durchblutung und damit die Bioverfügbarkeit von PS. Komplementäre Mechanismen.</p>
+      </div>
+      <div class="synergy-card">
+        <div class="pair-label">Säule 1 + 4</div>
+        <div class="pair">Cholin + B-Komplex</div>
+        <p>B6, B9 und B12 sind Co-Faktoren im Cholin-Stoffwechsel. Cholin ohne B-Komplex ist ineffizient.</p>
+      </div>
+      <div class="synergy-card">
+        <div class="pair-label">Säule 3 + 4</div>
+        <div class="pair">Selen + Zink + Kupfer</div>
+        <p>Die drei zentralen Mineralstoffe der körpereigenen Antioxidans-Enzyme. Ohne diese Trias kein Zellschutz-Fundament.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULIERUNGS-PRINZIPIEN -->
+<section class="section-alt">
+  <div class="container-wide">
+    <div class="text-center mx-auto" style="max-width: 640px;">
+      <span class="eyebrow">Formulierungs-Prinzipien</span>
+      <h2>Worauf wir bei jeder Entscheidung achten.</h2>
+    </div>
+
+    <div class="principle-row">
+      <div class="principle-item">
+        <div class="num">01</div>
+        <h4>Studienbasiert dosiert</h4>
+        <p>Wir dosieren da, wo Studien Wirkung nachweisen — nicht an der EU-Referenzmenge, die oft um Faktor 10 darunter liegt.</p>
+      </div>
+      <div class="principle-item">
+        <div class="num">02</div>
+        <h4>Bioaktive Formen</h4>
+        <p>Methylcobalamin statt Cyanocobalamin. P-5-P statt Pyridoxin-HCl. Zinkbisglycinat statt Zinkoxid. MK-7 statt K1.</p>
+      </div>
+      <div class="principle-item">
+        <div class="num">03</div>
+        <h4>Volle Deklaration</h4>
+        <p>Jede Dosierung auf dem Etikett. Jede Form benannt. Jede Quelle zur Studie zurückverfolgbar. Keine Proprietary Blends.</p>
+      </div>
+      <div class="principle-item">
+        <div class="num">04</div>
+        <h4>Kompromisslose Produktion</h4>
+        <p>FSSC 22000-zertifizierte Herstellung in Deutschland. Jede Charge unabhängig im Labor geprüft.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WIRKSTOFFE (volle Übersicht) -->
+<section id="wirkstoffe">
+  <div class="container-wide">
+    <div class="text-center mx-auto" style="max-width: 720px;">
+      <span class="eyebrow">Die sechs Premium-Wirkstoffe</span>
+      <h2>Das, was Standard-Multis nicht haben.</h2>
+      <p class="lead muted" style="margin-top: 40px;">
+        29 Inhaltsstoffe gesamt. Davon sechs, die den Unterschied zur Drogerie-Versorgung machen.
+      </p>
+    </div>
+
+    <div class="grid grid-3" style="margin-top: var(--space-block);">
+      <div class="card">
+        <div class="card-meta">Kognition</div>
+        <h3>Phosphatidylserin</h3>
+        <div class="card-dose">150 mg</div>
+        <p>Phospholipid. 15 % der Nervenzellmembranen. Studien zeigen Wirkung bei 100–300 mg täglich.</p>
+      </div>
+      <div class="card">
+        <div class="card-meta">Zellenergie</div>
+        <h3>Coenzym Q10</h3>
+        <div class="card-dose">50 mg</div>
+        <p>In jeder Zelle. Zentral für die ATP-Produktion. Die körpereigene Bildung sinkt ab 25.</p>
+      </div>
+      <div class="card">
+        <div class="card-meta">Mitochondrien</div>
+        <h3>PQQ (MGCPQQ®)</h3>
+        <div class="card-dose">500 µg</div>
+        <p>Pyrrolochinolinchinon. Fördert die Neubildung von Mitochondrien.</p>
+      </div>
+      <div class="card">
+        <div class="card-meta">Zellschutz</div>
+        <h3>Astaxanthin</h3>
+        <div class="card-dose">3 mg</div>
+        <p>Carotinoid aus Blutregenalge. Das einzige Antioxidans, das die Blut-Hirn-Schranke passiert.</p>
+      </div>
+      <div class="card">
+        <div class="card-meta">Neurotransmitter</div>
+        <h3>Cholin</h3>
+        <div class="card-dose">85 mg</div>
+        <p>Vorstufe von Acetylcholin. EFSA-Claim: Fett- und Homocystein-Stoffwechsel.¹</p>
+      </div>
+      <div class="card">
+        <div class="card-meta">Durchblutung</div>
+        <h3>Ginkgo biloba</h3>
+        <div class="card-dose">50 mg</div>
+        <p>Standardisierter Extrakt. 24 % Flavone, 6 % Lactone.</p>
+      </div>
+    </div>
+
+    <p class="text-center muted" style="margin-top: 64px;">
+      Plus 13 Vitamine und 9 Mineralstoffe in bioaktiven Formen.
+    </p>
+    <div class="text-center" style="margin-top: 24px;">
+      <a href="inhaltsstoffe.html" class="btn-link">Alle 29 Inhaltsstoffe mit Dosierung und Quelle</a>
+    </div>
+
+    <p class="micro" style="margin-top: 80px;">
+      ¹ EFSA Health Claims — Verordnung (EG) Nr. 1924/2006.
+    </p>
+  </div>
+</section>
+
+<!-- VERLAUF -->
+<section class="section-alt">
+  <div class="container">
+    <div class="text-center mx-auto" style="max-width: 680px;">
+      <span class="eyebrow">Die Reise</span>
+      <h2>Was passiert, wenn du anfängst.</h2>
+      <p class="lead muted" style="margin-top: 40px;">
+        base. enthält kein Koffein und keine kurzfristig stimulierenden Wirkstoffe. Die Wirkung kommt aus der Zellversorgung, und sie baut sich über Wochen auf.
+      </p>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-phase">Woche 1–2</div>
+        <div>
+          <h3>Die Grundlagen</h3>
+          <p>B-Vitamine und Magnesium füllen auf, was fehlt. Viele berichten gleichmäßigere Energie und ruhigeren Schlaf.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-phase">Woche 3–6</div>
+        <div>
+          <h3>Der Aufbau</h3>
+          <p>Phosphatidylserin reichert sich in den Zellmembranen an. Q10 und PQQ unterstützen die mitochondriale Funktion. Fokus wird konstanter.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-phase">Ab Monat 2</div>
+        <div>
+          <h3>Die neue Normalität</h3>
+          <p>Alle Wirkstoffe auf optimalem Level. Viele merken den Unterschied am deutlichsten, wenn sie base. einmal weglassen.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MORGENROUTINE -->
+<section>
+  <div class="container">
+    <div class="text-center mx-auto" style="max-width: 680px;">
+      <span class="eyebrow">Deine Morgenroutine</span>
+      <h2>Zehn Sekunden. Jeden Morgen.</h2>
+      <p class="lead muted" style="margin-top: 40px;">
+        base. ist so einfach in der Anwendung, wie die Formel aufwendig in der Entwicklung war.
+      </p>
+    </div>
+
+    <div style="max-width: 760px; margin: var(--space-block) auto 0;">
+      <div class="routine-step">
+        <div class="step-num">01</div>
+        <div>
+          <h3>Zwei Kapseln, morgens zum Frühstück.</h3>
+          <p>Die meisten B-Vitamine und Coenzyme arbeiten am besten, wenn dein Stoffwechsel hochfährt. Deshalb morgens. Und weil base. kein Koffein enthält, funktioniert die Einnahme unabhängig von deinem Schlaf.</p>
+        </div>
+      </div>
+
+      <div class="routine-step">
+        <div class="step-num">02</div>
+        <div>
+          <h3>Mit etwas Fett in der Mahlzeit.</h3>
+          <p>Vier der Wirkstoffe sind fettlöslich — Vitamin D3, K2, E und Astaxanthin. Sie werden am besten aufgenommen, wenn ein wenig Fett in der Nahrung dabei ist. Ein normales Frühstück reicht. Kein Bulletproof Coffee nötig.</p>
+        </div>
+      </div>
+
+      <div class="routine-step">
+        <div class="step-num">03</div>
+        <div>
+          <h3>Ein Glas Wasser dazu.</h3>
+          <p>Kapseln runterspülen, fertig. Die eigentliche Arbeit macht dein Verdauungs- und Stoffwechselsystem in den nächsten Stunden.</p>
+        </div>
+      </div>
+
+      <div class="routine-step">
+        <div class="step-num">04</div>
+        <div>
+          <h3>Einmal vergessen? Kein Problem.</h3>
+          <p>Weil die Wirkung aus der kontinuierlichen Anreicherung in Geweben kommt, hat ein ausgefallener Tag keine praktische Konsequenz. Am nächsten Morgen weitermachen.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section-alt">
+  <div class="container-wide">
+    <div class="text-center mx-auto" style="max-width: 680px;">
+      <span class="eyebrow">Was unsere Kunden sagen</span>
+      <h2>Trustpilot · 4,8 von 5 Sternen</h2>
+      <p class="lead muted" style="margin-top: 40px;">
+        Auszug aus echten Kunden-Reviews. Vollständige Liste auf Trustpilot.
+      </p>
+    </div>
+
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-quote">"Ich nehme base. noch nicht lange, vertrage es aber bisher sehr gut. Da ich in der Nachtschicht arbeite, war mir wichtig, wie es sich im Alltag auswirkt — ich fühle mich wacher und insgesamt agiler."</p>
+        <div class="review-author">W. Papelheim</div>
+        <div class="review-meta">Verifizierter Kauf · März 2026</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-quote">"Nach sechs Wochen deutlich stabilerer Fokus im Arbeitsalltag. Habe gleichzeitig zwei andere Supplements absetzen können. Eine Dose im Bad statt vier — das allein war die Umstellung wert."</p>
+        <div class="review-author">M. Weitzmann, Unternehmer</div>
+        <div class="review-meta">Verifizierter Kauf · Februar 2026</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-quote">"Klar deklarierte Dosierungen, studienbasiert formuliert — das hab ich in der Preisklasse vorher so nicht gefunden. Werde das Abo definitiv fortsetzen."</p>
+        <div class="review-author">Dr. K. Regenauer</div>
+        <div class="review-meta">Verifizierter Kauf · Februar 2026</div>
+      </div>
+    </div>
+
+    <p class="text-center muted" style="margin-top: 48px; font-style: italic; font-size: 13px;">
+      Reviews illustrativ · echte Trustpilot-Integration folgt mit Launch
+    </p>
+  </div>
+</section>
+
+<!-- AUTHORITY — condensed -->
+<section class="section-dark">
+  <div class="container-wide">
+    <div class="text-center mx-auto" style="max-width: 760px;">
+      <span class="eyebrow">Wer dahinter steht</span>
+      <h2>Aus der Praxis eines Performance-Coaches.</h2>
+      <p class="lead" style="color: #D6D1C7; margin-top: 40px;">
+        Nico Schinowski — Ex-Soldat, Fitnesstrainer A-Lizenz, Ernährungsberater — coacht seit Jahren mehr als hundert Klienten in 1:1-Betreuung. Die Frage „was nehme ich selbst und empfehle meinen Klienten" war der Ausgangspunkt für base. David Adam hat 2023 bei Nico angefangen zu trainieren — und aus den gemeinsamen Sessions ist + the plus entstanden. Beide nehmen base. täglich, seit der ersten Charge.
+      </p>
+      <div style="margin-top: 48px;">
+        <a href="gruender.html" class="btn-link" style="color: #F3F1EC; border-bottom-color: #F3F1EC;">Die ganze Geschichte</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUALITÄT -->
+<section>
+  <div class="container-wide">
+    <div class="text-center mx-auto" style="max-width: 680px;">
+      <span class="eyebrow">Qualität</span>
+      <h2>Was drin ist — und was nicht.</h2>
+    </div>
+
+    <div class="quality-grid">
+      <div class="quality-item">
+        <h4>Made in Germany</h4>
+        <p>Entwickelt und produziert in Deutschland.</p>
+      </div>
+      <div class="quality-item">
+        <h4>FSSC 22000</h4>
+        <p>Zertifizierter Lebensmittelsicherheits-Standard in der Produktion.</p>
+      </div>
+      <div class="quality-item">
+        <h4>Laborgeprüft</h4>
+        <p>Jede Charge unabhängig auf Reinheit und Schwermetalle geprüft.</p>
+      </div>
+      <div class="quality-item">
+        <h4>100 % Vegan</h4>
+        <p>HPMC-Kapseln. D3 aus Flechten.</p>
+      </div>
+      <div class="quality-item">
+        <h4>Bioaktive Formen</h4>
+        <p>Methylcobalamin, P-5-P, MK-7, Bisglycinat.</p>
+      </div>
+      <div class="quality-item">
+        <h4>Volle Deklaration</h4>
+        <p>Alle Dosierungen offen. Keine Proprietary Blends.</p>
+      </div>
+    </div>
+
+    <p class="muted text-center" style="margin-top: 80px; max-width: 680px; margin-left: auto; margin-right: auto;">
+      Ohne Magnesiumstearat, Titandioxid, Cyanocobalamin, synthetische Farbstoffe, künstliche Aromen, Koffein.
+    </p>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="section-alt">
+  <div class="container-wide">
+    <div class="text-center mx-auto" style="max-width: 680px;">
+      <span class="eyebrow">Pricing</span>
+      <h2>Vier Optionen. Ein Produkt.</h2>
+      <p class="lead muted" style="margin-top: 40px;">
+        Inhalt, Formel und Qualität sind bei allen Optionen identisch. Der Preis pro Tag hängt von der Dauer ab.
+      </p>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="price-card">
+        <h4>Einmalkauf</h4>
+        <div class="price-amount">59 &euro;</div>
+        <ul>
+          <li>60 Kapseln · 30 Tage</li>
+          <li>1,97 € pro Tag</li>
+          <li>Einmalige Lieferung</li>
+          <li>Versandkostenfrei</li>
+        </ul>
+        <a href="#" class="btn btn-ghost">Einmal bestellen</a>
+      </div>
+
+      <div class="price-card featured">
+        <div class="price-badge">Empfehlung</div>
+        <h4>Monatsabo</h4>
+        <div class="price-amount">49 &euro;<span class="price-unit"> /Monat</span></div>
+        <ul>
+          <li>1,63 € pro Tag · 17 % gespart</li>
+          <li>Monatliche Lieferung</li>
+          <li>Mindestlaufzeit 3 Lieferungen</li>
+          <li>Danach jederzeit kündbar</li>
+        </ul>
+        <a href="#" class="btn">Abo starten</a>
+      </div>
+
+      <div class="price-card">
+        <h4>3er Paket</h4>
+        <div class="price-amount">139 &euro;</div>
+        <ul>
+          <li>90 Tage · 21 % gespart</li>
+          <li>1,54 € pro Tag</li>
+          <li>Einmalige Lieferung</li>
+          <li>Kein Abo</li>
+        </ul>
+        <a href="#" class="btn btn-ghost">3er bestellen</a>
+      </div>
+
+      <div class="price-card">
+        <h4>6er Paket</h4>
+        <div class="price-amount">269 &euro;</div>
+        <ul>
+          <li>180 Tage · 24 % gespart</li>
+          <li>1,49 € pro Tag</li>
+          <li>Einmalige Lieferung</li>
+          <li>Kein Abo</li>
+        </ul>
+        <a href="#" class="btn btn-ghost">6er bestellen</a>
+      </div>
+    </div>
+
+    <p class="text-center muted" style="margin-top: 56px; max-width: 640px; margin-left: auto; margin-right: auto;">
+      Alle Preise inkl. 19 % MwSt. und Versand. Abo-Bedingungen: Mindestlaufzeit 3 Lieferungen ab Erstbestellung, Kündigung per E-Mail oder im Kundenkonto mit Wirkung zur nächsten Lieferung.
+    </p>
+  </div>
+</section>
+
+<!-- VERSAND & RÜCKGABE -->
+<section>
+  <div class="container">
+    <div class="text-center mx-auto" style="max-width: 680px;">
+      <span class="eyebrow">Versand &amp; Rückgabe</span>
+      <h2>Schnell bei dir. Unkompliziert zurück.</h2>
+    </div>
+
+    <div class="ship-return-grid">
+      <div class="ship-item">
+        <h4>Lieferzeit</h4>
+        <p>Versand innerhalb Deutschland 1–4 Werktage. DHL-Versand. Nach Bestellung erhältst du eine Sendungsnummer per E-Mail.</p>
+      </div>
+      <div class="ship-item">
+        <h4>Versandkosten</h4>
+        <p>Kostenloser Versand auf alle Bestellungen innerhalb Deutschlands — egal ob Einmalkauf, Abo oder Paket-Option.</p>
+      </div>
+      <div class="ship-item">
+        <h4>30-Tage-Rückgabe</h4>
+        <p>Ungeöffnete Produkte: 14 Tage Rückgaberecht nach §355 BGB. Angebrochene Produkte: 30 Tage Geld-zurück-Garantie — eine E-Mail an <a href="mailto:hi@theplus.de" style="color: var(--accent); border-bottom: 1px solid var(--accent);">hi@theplus.de</a> genügt.</p>
+      </div>
+      <div class="ship-item">
+        <h4>Abo pausieren</h4>
+        <p>Dein Abo kannst du jederzeit pausieren oder verschieben — direkt im Kundenkonto. Nach drei Lieferungen auch jederzeit kündbar, ohne Frist.</p>
+      </div>
+      <div class="ship-item">
+        <h4>Zahlungsarten</h4>
+        <p>Kreditkarte (Visa, Mastercard, Amex), PayPal, Klarna Sofortüberweisung, SEPA-Lastschrift (nur für Abos), Apple Pay, Google Pay.</p>
+      </div>
+      <div class="ship-item">
+        <h4>Rechnung &amp; B2B</h4>
+        <p>Rechnung per PDF zu jeder Bestellung. B2B-Kunden mit USt.-ID können die USt-Angaben im Checkout eingeben. Kontakt: <a href="mailto:b2b@theplus.de" style="color: var(--accent); border-bottom: 1px solid var(--accent);">b2b@theplus.de</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VERSPRECHEN -->
+<section class="section-alt">
+  <div class="container-narrow text-center">
+    <span class="eyebrow">30 Tage testen</span>
+    <h2>Wir tragen das Risiko.</h2>
+    <p class="lead" style="margin-top: 40px;">
+      Nimm base. einen Monat lang. Wenn du nicht überzeugt bist, erstatten wir den vollen Kaufpreis. Keine Rückfragen. Keine Formulare. Eine kurze E-Mail genügt.
+    </p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="text-center mx-auto" style="max-width: 560px;">
+      <span class="eyebrow">FAQ</span>
+      <h2>Häufige Fragen zum Produkt.</h2>
+    </div>
+
+    <div class="faq" style="max-width: 840px; margin-left: auto; margin-right: auto;">
+      <details>
+        <summary>Wie schnell merke ich etwas?</summary>
+        <p>Erste Veränderungen nach 1–2 Wochen: gleichmäßigere Energie, ruhigerer Schlaf. Volle Wirkung nach 4–6 Wochen. Die meisten Wirkstoffe brauchen mehrere Wochen, um sich in Geweben anzureichern.</p>
+      </details>
+      <details>
+        <summary>Macht base. wach wie Kaffee?</summary>
+        <p>Nein. base. enthält kein Koffein. Die Kapazität kommt aus der Zellversorgung, nicht aus akuter Stimulation.</p>
+      </details>
+      <details>
+        <summary>Kann ich base. mit anderen Supplements kombinieren?</summary>
+        <p>Ja. Omega-3, Kreatin und Protein können sinnvoll ergänzen. Bei Medikamenten — besonders Blutverdünnern — bitte vorher Rücksprache mit dem Arzt halten (wegen Vitamin K2 und Ginkgo).</p>
+      </details>
+      <details>
+        <summary>Ist base. vegan?</summary>
+        <p>Vollständig. HPMC-Kapseln. D3 aus Flechten (nicht aus Lanolin). Alle 29 Inhaltsstoffe sind pflanzlich oder synthetisch.</p>
+      </details>
+      <details>
+        <summary>Wie funktioniert das Abo?</summary>
+        <p>49 €/Monat, monatliche Lieferung. Mindestlaufzeit drei Lieferungen, danach jederzeit kündbar oder pausierbar direkt im Kundenkonto.</p>
+      </details>
+      <details>
+        <summary>Gibt es Nebenwirkungen?</summary>
+        <p>In studienrelevanten Dosierungen wird base. in der Regel gut vertragen. Bei Schwangeren und Stillenden raten wir von der Einnahme ab. Bei bestehenden Erkrankungen oder Medikation bitte vorher mit dem Arzt sprechen.</p>
+      </details>
+      <details>
+        <summary>Phosphatidylserin ist aus Soja — ist das ein Allergie-Problem?</summary>
+        <p>Unser Phosphatidylserin wird aus hochgereinigtem Sojalecithin gewonnen. Der Anteil an Soja-Proteinen, die für Allergien relevant sind, ist extrem niedrig. Bei schwerer Soja-Allergie empfehlen wir, vorher mit einem Arzt zu sprechen.</p>
+      </details>
+      <details>
+        <summary>Wie lagere ich base.?</summary>
+        <p>Trocken und vor direkter Sonne geschützt, bei Zimmertemperatur. Das Glas gut verschlossen halten. Kein Kühlschrank nötig. Haltbarkeit nach Öffnung: siehe Label (in der Regel 12 Monate).</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ABSCHLUSS -->
+<section class="section-alt">
+  <div class="container text-center">
+    <span class="eyebrow">Jetzt starten</span>
+    <h2 style="font-family: var(--font-display); font-size: clamp(80px, 12vw, 160px); line-height: 0.9; letter-spacing: -0.06em; font-weight: 350; color: var(--ink); margin-top: 24px;">base.</h2>
+    <p style="font-family: var(--font-display); font-size: clamp(26px, 3vw, 40px); font-style: italic; font-weight: 300; color: var(--accent); margin-top: 24px; letter-spacing: -0.02em;">
+      Klarheit, die bleibt.
+    </p>
+    <div class="cta-row" style="justify-content: center; margin-top: 48px;">
+      <a href="#pricing" class="btn">Abo starten</a>
+      <a href="#pricing" class="btn-link">Einmalkauf</a>
+    </div>
+    <p class="micro" style="margin-top: 32px;">
+      Made in Germany · FSSC 22000 · 30 Tage risikofrei · Versandkostenfrei
+    </p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-tag">own your life.</div>
+    <div class="footer-links">
+      <a href="homepage.html">Homepage</a>
+      <a href="inhaltsstoffe.html">Inhaltsstoffe</a>
+      <a href="insights.html">Insights</a>
+      <a href="gruender.html">Die Gründer</a>
+      <a href="#faq">FAQ</a>
+      <a href="#">Kontakt</a>
+      <a href="#">Impressum</a>
+      <a href="#">Datenschutz</a>
+      <a href="#">AGB</a>
+    </div>
+    <p class="footer-copy">+ the plus nutrition GmbH</p>
+  </div>
+</footer>
+
+</body>
+</html>
