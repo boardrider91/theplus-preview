@@ -666,10 +666,12 @@ p:last-child {
 }
 
 .problem-list li::before {
-  content: "—";
-  color: var(--accent);
-  font-weight: 400;
-  font-family: var(--font-body);
+  content: "";
+  width: 4px;
+  height: 4px;
+  margin-top: 16px;
+  border-radius: 50%;
+  background: var(--accent);
   flex-shrink: 0;
 }
 
