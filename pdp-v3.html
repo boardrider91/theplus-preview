@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>base. | Klarheit, die bleibt. | + the plus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300..700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <style>
+    /* ========== PDP v3 — Custom Components ========== */
+
+    /* Hero */
+    .pdp-v3-hero {
+      padding: clamp(80px, 10vw, 140px) 0 clamp(60px, 8vw, 100px);
+    }
+    .pdp-v3-hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: clamp(48px, 7vw, 96px);
+      align-items: center;
+    }
+    @media (max-width: 900px) { .pdp-v3-hero-grid { grid-template-columns: 1fr; } }
+
+    .pdp-v3-product-name {
+      font-family: var(--font-display);
+      font-size: clamp(96px, 14vw, 200px);
+      line-height: 0.9;
+      letter-spacing: -0.06em;
+      font-weight: 350;
+      color: var(--ink);
+      margin-top: 24px;
+    }
+    .pdp-v3-tagline {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3.4vw, 44px);
+      font-style: italic;
+      font-weight: 300;
+      color: var(--accent);
+      margin-top: 32px;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+    .pdp-v3-subline {
+      margin-top: 32px;
+      font-size: clamp(18px, 1.4vw, 21px);
+      line-height: 1.55;
+      color: var(--ink-soft);
+      max-width: 540px;
+    }
+    .pdp-v3-info {
+      margin-top: 16px;
+      font-size: 15px;
+      color: var(--ink-muted);
+      max-width: 520px;
+      line-height: 1.6;
+    }
+
+    /* Buy-Box with Tab-Switch */
+    .pdp-v3-buybox {
+      margin-top: 48px;
+      padding: 32px;
+      border: 1px solid var(--divider);
+      background: var(--bg);
+      max-width: 580px;
+    }
+    .pdp-v3-tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      margin-bottom: 24px;
+      border: 1px solid var(--divider);
+    }
+    .pdp-v3-tabs input[type="radio"] { display: none; }
+    .pdp-v3-tabs label {
+      padding: 14px 16px;
+      text-align: center;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      transition: all 0.2s var(--ease);
+      border-right: 1px solid var(--divider);
+    }
+    .pdp-v3-tabs label:last-of-type { border-right: none; }
+    .pdp-v3-tabs input[type="radio"]:checked + label {
+      background: var(--ink);
+      color: var(--bg);
+    }
+
+    .pdp-v3-quantities {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .pdp-v3-qty-option {
+      padding: 16px 12px;
+      border: 1px solid var(--divider);
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s var(--ease);
+      position: relative;
+    }
+    .pdp-v3-qty-option.active {
+      border-color: var(--ink);
+      background: var(--bg-alt, #F6F4EE);
+    }
+    .pdp-v3-qty-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 4px;
+    }
+    .pdp-v3-qty-price {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--ink);
+      letter-spacing: -0.015em;
+    }
+    .pdp-v3-qty-save {
+      font-size: 11px;
+      color: var(--accent);
+      margin-top: 4px;
+      font-weight: 600;
+    }
+    .pdp-v3-qty-badge {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: var(--bg);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+    }
+
+    .pdp-v3-buy-cta {
+      width: 100%;
+      padding: 18px;
+      background: var(--ink);
+      color: var(--bg);
+      border: none;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s var(--ease);
+      text-align: center;
+      text-decoration: none;
+      display: block;
+    }
+    .pdp-v3-buy-cta:hover { background: var(--accent); }
+
+    .pdp-v3-buybox-trust {
+      margin-top: 20px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 12px;
+      color: var(--ink-muted);
+      letter-spacing: 0.04em;
+    }
+    .pdp-v3-buybox-trust span::before { content: "✓ "; color: var(--accent); font-weight: 600; }
+
+    .pdp-v3-hero-image {
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      background: var(--surface);
+    }
+    .pdp-v3-hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Promise — atmend */
+    .pdp-v3-promise {
+      padding: clamp(120px, 14vw, 180px) 0;
+      text-align: center;
+    }
+    .pdp-v3-promise h2 {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 5.5vw, 72px);
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      font-weight: 400;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .pdp-v3-promise p {
+      margin-top: 40px;
+      font-size: clamp(18px, 1.4vw, 21px);
+      color: var(--ink-muted);
+      letter-spacing: 0.02em;
+    }
+
+    /* Three Pillars */
+    .pdp-v3-pillars {
+      padding: clamp(80px, 10vw, 140px) 0;
+      background: var(--bg-alt, #F6F4EE);
+    }
+    .pdp-v3-pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(24px, 3vw, 40px);
+      margin-top: var(--space-block);
+    }
+    @media (max-width: 900px) { .pdp-v3-pillars-grid { grid-template-columns: 1fr; gap: 32px; } }
+    .pdp-v3-pillar {
+      background: var(--bg);
+      border: 1px solid var(--divider);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .pdp-v3-pillar-image {
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: var(--surface);
+    }
+    .pdp-v3-pillar-image img { width: 100%; height: 100%; object-fit: cover; }
+    .pdp-v3-pillar-body {
+      padding: 32px 28px 36px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .pdp-v3-pillar-num {
+      font-family: var(--font-display);
+      font-size: 13px;
+      color: var(--accent);
+      font-style: italic;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+    }
+    .pdp-v3-pillar h3 {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 2.6vw, 36px);
+      line-height: 1.15;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+    }
+    .pdp-v3-pillar p {
+      font-size: 16px;
+      color: var(--ink-muted);
+      line-height: 1.55;
+      margin-top: auto;
+    }
+    .pdp-v3-pillar-ingredients {
+      font-size: 13px;
+      color: var(--ink-soft);
+      letter-spacing: 0.04em;
+      padding-top: 16px;
+      border-top: 1px solid var(--divider);
+      margin-top: 8px;
+    }
+
+    /* CTA Insert */
+    .pdp-v3-cta-insert {
+      padding: clamp(80px, 10vw, 120px) 0;
+      text-align: center;
+    }
+    .pdp-v3-cta-insert h3 {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 4vw, 52px);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      font-weight: 400;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .pdp-v3-cta-insert h3 em {
+      font-weight: 300;
+      color: var(--accent);
+    }
+    .pdp-v3-cta-insert .btn {
+      margin-top: 40px;
+      display: inline-block;
+    }
+
+    /* Differentiator */
+    .pdp-v3-differentiator {
+      padding: clamp(80px, 10vw, 140px) 0;
+      background: var(--bg-alt, #F6F4EE);
+    }
+    .pdp-v3-differentiator-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(40px, 6vw, 80px);
+      align-items: center;
+    }
+    @media (max-width: 900px) { .pdp-v3-differentiator-grid { grid-template-columns: 1fr; } }
+    .pdp-v3-differentiator-image {
+      aspect-ratio: 1 / 1;
+      background: var(--surface);
+      overflow: hidden;
+    }
+    .pdp-v3-differentiator-image img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* Ingredients */
+    .pdp-v3-ingredients {
+      padding: clamp(80px, 10vw, 140px) 0;
+    }
+    .pdp-v3-ingredients-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(24px, 3vw, 32px);
+      margin-top: var(--space-block);
+    }
+    @media (max-width: 900px) { .pdp-v3-ingredients-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .pdp-v3-ingredients-grid { grid-template-columns: 1fr; } }
+    .pdp-v3-ingredient {
+      background: var(--bg);
+      border: 1px solid var(--divider);
+      overflow: hidden;
+    }
+    .pdp-v3-ingredient-image {
+      aspect-ratio: 1 / 1;
+      background: var(--surface);
+      overflow: hidden;
+    }
+    .pdp-v3-ingredient-image img { width: 100%; height: 100%; object-fit: cover; }
+    .pdp-v3-ingredient-body { padding: 24px; }
+    .pdp-v3-ingredient-meta {
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .pdp-v3-ingredient h3 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 400;
+      letter-spacing: -0.015em;
+      line-height: 1.2;
+    }
+    .pdp-v3-ingredient-dose {
+      font-size: 14px;
+      color: var(--ink-soft);
+      margin-top: 4px;
+      font-family: var(--font-display);
+      font-style: italic;
+    }
+    .pdp-v3-ingredient p {
+      font-size: 14px;
+      color: var(--ink-muted);
+      margin-top: 12px;
+      line-height: 1.55;
+    }
+
+    /* Synergy */
+    .pdp-v3-synergy {
+      padding: clamp(80px, 10vw, 140px) 0;
+      background: var(--bg-alt, #F6F4EE);
+    }
+    .pdp-v3-synergy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: var(--space-block);
+    }
+    @media (max-width: 900px) { .pdp-v3-synergy-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .pdp-v3-synergy-grid { grid-template-columns: 1fr; } }
+    .pdp-v3-synergy-card {
+      background: var(--bg);
+      border: 1px solid var(--divider);
+      padding: 28px 24px;
+    }
+    .pdp-v3-synergy-pair {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 400;
+      letter-spacing: -0.015em;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+    .pdp-v3-synergy-card p {
+      font-size: 14px;
+      color: var(--ink-muted);
+      line-height: 1.55;
+    }
+
+    /* Founders — Hintsa-Style, dark */
+    .pdp-v3-founders {
+      background: #0E1311;
+      color: #F3F1EC;
+      padding: clamp(100px, 12vw, 160px) 0;
+    }
+    .pdp-v3-founders-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(40px, 6vw, 96px);
+      align-items: center;
+    }
+    @media (max-width: 900px) { .pdp-v3-founders-grid { grid-template-columns: 1fr; } }
+    .pdp-v3-founders-image {
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      background: #161B18;
+    }
+    .pdp-v3-founders-image img { width: 100%; height: 100%; object-fit: cover; }
+    .pdp-v3-founders h2 {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 5vw, 64px);
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      font-weight: 400;
+      color: #F3F1EC;
+      margin-top: 24px;
+    }
+    .pdp-v3-founders .eyebrow {
+      color: #9AA09A;
+    }
+    .pdp-v3-founders p {
+      font-size: 17px;
+      line-height: 1.65;
+      color: #D6D1C7;
+      margin-top: 24px;
+    }
+    .pdp-v3-founders .btn-link {
+      color: #F3F1EC;
+      border-bottom-color: #F3F1EC;
+      margin-top: 32px;
+      display: inline-block;
+    }
+
+    /* Timeline */
+    .pdp-v3-timeline {
+      padding: clamp(80px, 10vw, 140px) 0;
+    }
+    .pdp-v3-timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      margin-top: var(--space-block);
+      border-top: 1px solid var(--divider);
+    }
+    @media (max-width: 900px) { .pdp-v3-timeline-grid { grid-template-columns: 1fr; } }
+    .pdp-v3-timeline-phase {
+      padding: 40px 32px;
+      border-right: 1px solid var(--divider);
+      border-bottom: 1px solid var(--divider);
+    }
+    .pdp-v3-timeline-phase:last-child { border-right: none; }
+    @media (max-width: 900px) { .pdp-v3-timeline-phase { border-right: none; } }
+    .pdp-v3-timeline-when {
+      font-family: var(--font-display);
+      font-size: 13px;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      font-style: italic;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+    .pdp-v3-timeline-phase h3 {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 400;
+      letter-spacing: -0.015em;
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+    .pdp-v3-timeline-phase p {
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.55;
+    }
+
+    /* Reviews */
+    .pdp-v3-reviews {
+      padding: clamp(80px, 10vw, 140px) 0;
+      background: var(--bg-alt, #F6F4EE);
+    }
+    .pdp-v3-reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(20px, 2.5vw, 32px);
+      margin-top: var(--space-block);
+    }
+    @media (max-width: 900px) { .pdp-v3-reviews-grid { grid-template-columns: 1fr; } }
+    .pdp-v3-review {
+      background: var(--bg);
+      padding: 32px 28px;
+      border: 1px solid var(--divider);
+    }
+    .pdp-v3-review-stars { color: var(--accent); font-size: 14px; margin-bottom: 16px; letter-spacing: 0.1em; }
+    .pdp-v3-review p {
+      font-family: var(--font-display);
+      font-size: 18px;
+      line-height: 1.5;
+      font-weight: 350;
+      color: var(--ink);
+      letter-spacing: -0.005em;
+    }
+    .pdp-v3-review-author {
+      margin-top: 24px;
+      padding-top: 16px;
+      border-top: 1px solid var(--divider);
+      font-size: 13px;
+      color: var(--ink-soft);
+    }
+    .pdp-v3-review-meta {
+      font-size: 12px;
+      color: var(--ink-muted);
+      margin-top: 4px;
+    }
+
+    /* Pricing */
+    .pdp-v3-pricing {
+      padding: clamp(80px, 10vw, 140px) 0;
+    }
+    .pdp-v3-pricing-tabs {
+      max-width: 720px;
+      margin: var(--space-block) auto 0;
+    }
+    .pdp-v3-pricing-tab-controls {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1px solid var(--divider);
+    }
+    .pdp-v3-pricing-tab-controls input[type="radio"] { display: none; }
+    .pdp-v3-pricing-tab-controls label {
+      padding: 18px 20px;
+      text-align: center;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      border-right: 1px solid var(--divider);
+      transition: all 0.2s var(--ease);
+    }
+    .pdp-v3-pricing-tab-controls label:last-of-type { border-right: none; }
+    .pdp-v3-pricing-tab-controls input[type="radio"]:checked + label {
+      background: var(--ink);
+      color: var(--bg);
+    }
+    .pdp-v3-pricing-content {
+      padding: 48px 32px;
+      border: 1px solid var(--divider);
+      border-top: none;
+    }
+    .pdp-v3-pricing-options {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 720px) { .pdp-v3-pricing-options { grid-template-columns: 1fr; } }
+    .pdp-v3-pricing-card {
+      padding: 28px 20px;
+      border: 1px solid var(--divider);
+      text-align: center;
+    }
+    .pdp-v3-pricing-card.featured {
+      border-color: var(--ink);
+      background: var(--bg-alt, #F6F4EE);
+    }
+    .pdp-v3-pricing-card h4 {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 16px;
+    }
+    .pdp-v3-pricing-amount {
+      font-family: var(--font-display);
+      font-size: 36px;
+      font-weight: 400;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+    }
+    .pdp-v3-pricing-perday {
+      font-size: 13px;
+      color: var(--ink-muted);
+      margin-top: 4px;
+      margin-bottom: 16px;
+    }
+    .pdp-v3-pricing-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 24px 0;
+      font-size: 13px;
+      color: var(--ink-soft);
+      line-height: 1.7;
+    }
+
+    /* Risk anchor */
+    .pdp-v3-risk {
+      padding: clamp(80px, 10vw, 140px) 0;
+      background: var(--bg-alt, #F6F4EE);
+      text-align: center;
+    }
+    .pdp-v3-risk h2 {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 4.5vw, 56px);
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      font-weight: 400;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .pdp-v3-risk p {
+      max-width: 640px;
+      margin: 32px auto 0;
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--ink-soft);
+    }
+
+    /* FAQ */
+    .pdp-v3-faq {
+      padding: clamp(80px, 10vw, 140px) 0;
+    }
+    .pdp-v3-faq-list {
+      max-width: 800px;
+      margin: var(--space-block) auto 0;
+    }
+    .pdp-v3-faq details {
+      border-bottom: 1px solid var(--divider);
+      padding: 24px 0;
+    }
+    .pdp-v3-faq summary {
+      font-family: var(--font-display);
+      font-size: clamp(20px, 1.8vw, 24px);
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      cursor: pointer;
+      list-style: none;
+      position: relative;
+      padding-right: 40px;
+      color: var(--ink);
+    }
+    .pdp-v3-faq summary::-webkit-details-marker { display: none; }
+    .pdp-v3-faq summary::after {
+      content: "+";
+      position: absolute;
+      right: 0;
+      top: 0;
+      font-size: 24px;
+      color: var(--accent);
+      font-weight: 300;
+      transition: transform 0.2s var(--ease);
+    }
+    .pdp-v3-faq details[open] summary::after { content: "−"; }
+    .pdp-v3-faq details p {
+      margin-top: 16px;
+      font-size: 16px;
+      color: var(--ink-soft);
+      line-height: 1.65;
+      max-width: 720px;
+    }
+
+    /* Final CTA */
+    .pdp-v3-final {
+      padding: clamp(120px, 14vw, 200px) 0;
+      text-align: center;
+    }
+    .pdp-v3-final-name {
+      font-family: var(--font-display);
+      font-size: clamp(96px, 14vw, 200px);
+      line-height: 0.9;
+      letter-spacing: -0.06em;
+      font-weight: 350;
+      color: var(--ink);
+    }
+    .pdp-v3-final-tagline {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3vw, 40px);
+      font-style: italic;
+      font-weight: 300;
+      color: var(--accent);
+      margin-top: 24px;
+      letter-spacing: -0.02em;
+    }
+    .pdp-v3-final .cta-row {
+      justify-content: center;
+      margin-top: 56px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="preview-notice"><a href="index.html">← Preview-Hub</a> · pdp-v3 (High-End Build)</div>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href="index.html" class="site-logo"><span class="plus">+</span> the plus</a>
+    <nav class="site-nav">
+      <a href="homepage.html">Homepage</a>
+      <a href="pdp-v3.html" class="active">base.</a>
+      <a href="inhaltsstoffe.html">Inhaltsstoffe</a>
+      <a href="insights.html">Insights</a>
+      <a href="gruender.html">Gründer</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== 1. HERO + BUY-BOX ===== -->
+<section class="pdp-v3-hero">
+  <div class="container-wide">
+    <div class="pdp-v3-hero-grid">
+      <div>
+        <span class="eyebrow">Performance Foundation · Made in Germany</span>
+        <h1 class="pdp-v3-product-name">base.</h1>
+        <p class="pdp-v3-tagline">Klarheit, die bleibt.</p>
+        <p class="pdp-v3-subline">
+          Das tägliche Fundament für Klarheit, Energie und Ausdauer.
+        </p>
+        <p class="pdp-v3-info">
+          29 Wirkstoffe in zwei Kapseln. Entstanden aus der Arbeit mit mehr als hundert Klienten. Hergestellt in Deutschland unter FSSC 22000.
+        </p>
+
+        <div class="pdp-v3-buybox">
+          <div class="pdp-v3-tabs">
+            <input type="radio" name="hero-mode" id="hero-abo" checked />
+            <label for="hero-abo">Abo · 17 % gespart</label>
+            <input type="radio" name="hero-mode" id="hero-once" />
+            <label for="hero-once">Einmalkauf</label>
+          </div>
+
+          <div class="pdp-v3-quantities">
+            <div class="pdp-v3-qty-option">
+              <div class="pdp-v3-qty-label">1 Monat</div>
+              <div class="pdp-v3-qty-price">49 €</div>
+              <div class="pdp-v3-qty-save">1,63 €/Tag</div>
+            </div>
+            <div class="pdp-v3-qty-option active">
+              <div class="pdp-v3-qty-badge">Empfehlung</div>
+              <div class="pdp-v3-qty-label">3 Monate</div>
+              <div class="pdp-v3-qty-price">139 €</div>
+              <div class="pdp-v3-qty-save">21 % gespart</div>
+            </div>
+            <div class="pdp-v3-qty-option">
+              <div class="pdp-v3-qty-label">6 Monate</div>
+              <div class="pdp-v3-qty-price">269 €</div>
+              <div class="pdp-v3-qty-save">24 % gespart</div>
+            </div>
+          </div>
+
+          <a href="#pricing" class="pdp-v3-buy-cta">In den Warenkorb</a>
+
+          <div class="pdp-v3-buybox-trust">
+            <span>30 Tage Geld-zurück</span>
+            <span>Versandkostenfrei</span>
+            <span>Lieferung 1–4 Werktage</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="pdp-v3-hero-image">
+          <img src="assets/images/packshots/styled/01_marble_morning.png" alt="base. auf Marmoroberfläche, Morgenlicht" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRUST BAR ===== -->
+<div class="trust-bar-pdp">
+  <div class="trust-bar-pdp-inner">
+    <div class="trust-bar-item"><span class="trust-icon">✓</span><span>Made in Germany · <strong>FSSC 22000</strong></span></div>
+    <div class="trust-bar-item"><span class="trust-icon">✓</span><span><strong>Laborgeprüft</strong> je Charge</span></div>
+    <div class="trust-bar-item"><span class="trust-icon">✓</span><span><strong>100 % vegan</strong></span></div>
+    <div class="trust-bar-item"><span class="trust-icon">✓</span><span><strong>Bioaktive</strong> Formen</span></div>
+    <div class="trust-bar-item"><span class="trust-icon">✓</span><span><strong>30 Tage</strong> Geld-zurück</span></div>
+  </div>
+</div>
+
+<!-- ===== 2. THE PROMISE ===== -->
+<section class="pdp-v3-promise">
+  <div class="container">
+    <h2>Die tägliche Formel für Kognition und Longevity.</h2>
+    <p>29 Wirkstoffe. Zwei Kapseln. Jeden Morgen.</p>
+  </div>
+</section>
+
+<!-- ===== 3. THREE PILLARS ===== -->
+<section class="pdp-v3-pillars">
+  <div class="container-wide">
+    <div class="text-center mx-auto" style="max-width: 720px;">
+      <span class="eyebrow">Drei Säulen</span>
+      <h2>Was base. für dich leistet.</h2>
+    </div>
+
+    <div class="pdp-v3-pillars-grid">
+      <div class="pdp-v3-pillar">
+        <div class="pdp-v3-pillar-image">
+          <img src="assets/images/lifestyle/daily/17_home_office_focus.png" alt="Fokussierte Arbeit am Schreibtisch" />
+        </div>
+        <div class="pdp-v3-pillar-body">
+          <span class="pdp-v3-pillar-num">01 · Kognition</span>
+          <h3>Klarheit, die trägt.</h3>
+          <p>Die Bausteine für mentale Schärfe, auch im letzten Meeting des Tages.</p>
+          <div class="pdp-v3-pillar-ingredients">Phosphatidylserin · Cholin · Ginkgo · B-Komplex</div>
+        </div>
+      </div>
+
+      <div class="pdp-v3-pillar">
+        <div class="pdp-v3-pillar-image">
+          <img src="assets/images/ingredients/pqq.png" alt="PQQ Mitochondrien-Biogenese" />
+        </div>
+        <div class="pdp-v3-pillar-body">
+          <span class="pdp-v3-pillar-num">02 · Zellenergie</span>
+          <h3>Energie, die bleibt.</h3>
+          <p>Q10 und PQQ unterstützen deine Mitochondrien. Substrat statt Adrenalin.</p>
+          <div class="pdp-v3-pillar-ingredients">Coenzym Q10 · PQQ (MGCPQQ®) · Magnesium</div>
+        </div>
+      </div>
+
+      <div class="pdp-v3-pillar">
+        <div class="pdp-v3-pillar-image">
+          <img src="assets/images/ingredients/astaxanthin.png" alt="Astaxanthin Zellschutz" />
+        </div>
+        <div class="pdp-v3-pillar-body">
+          <span class="pdp-v3-pillar-num">03 · Zellschutz</span>
+          <h3>Schutz, der wirkt.</h3>
+          <p>Mehrstufiges Schutzschild gegen oxidative Belastung. Für die Person, die du in zwanzig Jahren bist.</p>
+          <div class="pdp-v3-pillar-ingredients">Astaxanthin · Vitamin C+E · Selen · Zink</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA INSERT 1 ===== -->
+<section class="pdp-v3-cta-insert">
+  <div class="container">
+    <h3>Klarheit. Energie. Ausdauer. <em>Wenn jede Entscheidung zählt.</em></h3>
+    <a href="#pricing" class="btn">base. bestellen</a>
+  </div>
+</section>
+
+<!-- ===== 4. DIFFERENTIATOR ===== -->
+<section class="pdp-v3-differentiator">
+  <div class="container-wide">
+    <div class="pdp-v3-differentiator-grid">
+      <div>
+        <span class="eyebrow">Plus</span>
+        <h2 style="font-family: var(--font-display); font-size: clamp(40px, 5vw, 64px); line-height: 1.1; letter-spacing: -0.025em; font-weight: 400; margin-top: 16px;">Eine Dose statt zehn.</h2>
+        <p style="margin-top: 32px; font-size: 17px; line-height: 1.65; color: var(--ink-soft);">
+          Multivitamin, Magnesium, D3, K2, Q10, B-Komplex, Zink, Omega. Zehn Dosen im Schrank. Die Hälfte vergessen.
+        </p>
+        <p style="margin-top: 16px; font-size: 17px; line-height: 1.65; color: var(--ink-soft);">
+          base. schließt diese Lücken. 13 Vitamine und 9 Mineralstoffe in bioaktiven Formen. Methylcobalamin statt Cyanocobalamin. Bisglycinat statt Zinkoxid. MK-7 statt K1.
+        </p>
+      </div>
+      <div>
+        <div class="pdp-v3-differentiator-image">
+          <img src="assets/images/problem-solution/before-after-supplement-shelf.png" alt="Vorher: zehn Dosen. Nachher: base." />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5. INGREDIENTS ===== -->
+<section class="pdp-v3-ingredients">
+  <div class="container-wide">
+    <div class="text-center mx-auto" style="max-width: 720px;">
+      <span class="eyebrow">Sechs Premium-Wirkstoffe</span>
+      <h2>Was Standard-Multis nicht haben.</h2>
+      <p class="lead muted" style="margin-top: 32px;">
+        Sechs Wirkstoffe, die in 99 % der Multivitamine fehlen.
+      </p>
+    </div>
+
+    <div class="pdp-v3-ingredients-grid">
+      <div class="pdp-v3-ingredient">
+        <div class="pdp-v3-ingredient-image"><img src="assets/images/ingredients/jar-ingredient-powders-frontal.png" alt="Phosphatidylserin" /></div>
+        <div class="pdp-v3-ingredient-body">
+          <div class="pdp-v3-ingredient-meta">Kognition</div>
+          <h3>Phosphatidylserin</h3>
+          <div class="pdp-v3-ingredient-dose">150 mg</div>
+          <p>Phospholipid in Nervenzellmembranen. Studienwirksam ab 100 mg täglich.</p>
+        </div>
+      </div>
+
+      <div class="pdp-v3-ingredient">
+        <div class="pdp-v3-ingredient-image"><img src="assets/images/ingredients/q10.png" alt="Coenzym Q10" /></div>
+        <div class="pdp-v3-ingredient-body">
+          <div class="pdp-v3-ingredient-meta">Zellenergie</div>
+          <h3>Coenzym Q10</h3>
+          <div class="pdp-v3-ingredient-dose">50 mg</div>
+          <p>Zentral für die mitochondriale ATP-Produktion. Körpereigene Bildung sinkt ab 25.</p>
+        </div>
+      </div>
+
+      <div class="pdp-v3-ingredient">
+        <div class="pdp-v3-ingredient-image"><img src="assets/images/ingredients/pqq.png" alt="PQQ" /></div>
+        <div class="pdp-v3-ingredient-body">
+          <div class="pdp-v3-ingredient-meta">Mitochondrien</div>
+          <h3>PQQ (MGCPQQ®)</h3>
+          <div class="pdp-v3-ingredient-dose">500 µg</div>
+          <p>Pyrrolochinolinchinon. Fördert die Neubildung von Mitochondrien.</p>
+        </div>
+      </div>
+
+      <div class="pdp-v3-ingredient">
+        <div class="pdp-v3-ingredient-image"><img src="assets/images/ingredients/astaxanthin.png" alt="Astaxanthin" /></div>
+        <div class="pdp-v3-ingredient-body">
+          <div class="pdp-v3-ingredient-meta">Zellschutz</div>
+          <h3>Astaxanthin</h3>
+          <div class="pdp-v3-ingredient-dose">3 mg</div>
+          <p>Carotinoid aus Blutregenalge. Das einzige Antioxidans, das die Blut-Hirn-Schranke passiert.</p>
+        </div>
+      </div>
+
+      <div class="pdp-v3-ingredient">
+        <div class="pdp-v3-ingredient-image"><img src="assets/images/ingredients/cholin.png" alt="Cholin" /></div>
+        <div class="pdp-v3-ingredient-body">
+          <div class="pdp-v3-ingredient-meta">Neurotransmitter</div>
+          <h3>Cholin</h3>
+          <div class="pdp-v3-ingredient-dose">85 mg</div>
+          <p>Vorstufe von Acetylcholin. Trägt zum Fett- und Homocystein-Stoffwechsel bei.</p>
+        </div>
+      </div>
+
+      <div class="pdp-v3-ingredient">
+        <div class="pdp-v3-ingredient-image"><img src="assets/images/ingredients/ginkgo-botanical-portrait.png" alt="Ginkgo biloba" /></div>
+        <div class="pdp-v3-ingredient-body">
+          <div class="pdp-v3-ingredient-meta">Durchblutung</div>
+          <h3>Ginkgo biloba</h3>
+          <div class="pdp-v3-ingredient-dose">50 mg</div>
+          <p>Standardisierter Extrakt. 24 % Flavone, 6 % Lactone.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-center muted" style="margin-top: 64px;">Plus 13 Vitamine und 9 Mineralstoffe in bioaktiven Formen.</p>
+    <div class="text-center" style="margin-top: 16px;">
+      <a href="inhaltsstoffe.html" class="btn-link">Alle 29 Inhaltsstoffe ansehen</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA INSERT 2 ===== -->
+<section class="pdp-v3-cta-insert">
+  <div class="container">
+    <h3><em>29 Wirkstoffe. Zwei Kapseln.</em> Jeden Morgen.</h3>
+    <a href="#pricing" class="btn">base. bestellen</a>
+  </div>
+</section>
+
+<!-- ===== 6. SYNERGY ===== -->
+<section class="pdp-v3-synergy">
+  <div class="container-wide">
+    <div class="text-center mx-auto" style="max-width: 760px;">
+      <span class="eyebrow">Die Synergie</span>
+      <h2>Einzeln wirken sie.<br /><em style="font-style: italic; color: var(--accent); font-weight: 300;">Zusammen erst tragen sie.</em></h2>
+      <p class="lead muted" style="margin-top: 32px;">
+        In base. arbeiten 19 dokumentierte Wirkstoff-Synergien zusammen. Das ist der Unterschied zwischen einer Formel und einem Stack.
+      </p>
+    </div>
+
+    <div class="pdp-v3-synergy-grid">
+      <div class="pdp-v3-synergy-card">
+        <div class="pdp-v3-synergy-pair">Q10 + PQQ</div>
+        <p>Q10 optimiert bestehende Mitochondrien, PQQ bildet neue. Kombiniert verstärkt sich der kognitive Effekt.</p>
+      </div>
+      <div class="pdp-v3-synergy-card">
+        <div class="pdp-v3-synergy-pair">D3 + K2</div>
+        <p>D3 hebt den Calcium-Spiegel. K2 lenkt es dorthin, wo es hingehört: in die Knochen, nicht in die Arterien.</p>
+      </div>
+      <div class="pdp-v3-synergy-card">
+        <div class="pdp-v3-synergy-pair">Vitamin C + E</div>
+        <p>Antioxidatives Recycling. Vitamin E fängt Radikale ab, Vitamin C regeneriert verbrauchtes E.</p>
+      </div>
+      <div class="pdp-v3-synergy-card">
+        <div class="pdp-v3-synergy-pair">PS + Ginkgo</div>
+        <p>PS stabilisiert Nervenzellmembranen. Ginkgo verbessert die Bioverfügbarkeit von PS.</p>
+      </div>
+      <div class="pdp-v3-synergy-card">
+        <div class="pdp-v3-synergy-pair">Cholin + B-Komplex</div>
+        <p>B6, B9 und B12 sind Co-Faktoren im Cholin-Stoffwechsel. Cholin allein ist ineffizient.</p>
+      </div>
+      <div class="pdp-v3-synergy-card">
+        <div class="pdp-v3-synergy-pair">Selen + Zink + Kupfer</div>
+        <p>Die drei zentralen Mineralstoffe der körpereigenen Antioxidans-Enzyme. Zellschutz-Fundament.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 7. FOUNDERS (Hintsa-Style, dark) ===== -->
+<section class="pdp-v3-founders">
+  <div class="container-wide">
+    <div class="pdp-v3-founders-grid">
+      <div class="pdp-v3-founders-image">
+        <img src="assets/images/people/03_male_creative_director.png" alt="Nico Schinowski, Performance Coach" />
+      </div>
+      <div>
+        <span class="eyebrow">Aus der Praxis. Für die Praxis.</span>
+        <h2>Wer hinter base. steht.</h2>
+        <p>
+          Nico Schinowski. Acht Jahre Militärdienst. Fitnesstrainer A-Lizenz. Mehr als hundert 1:1-Klienten, jeden Monat. David Adam. Unternehmer. Seit 2023 bei Nico im Training.
+        </p>
+        <p>
+          Aus dieser Zusammenarbeit entstand die Frage, die niemand sauber beantworten konnte. Die Antwort haben wir selbst formuliert. Sie heißt base. Wir nehmen sie seit der ersten Charge. Jeden Tag.
+        </p>
+        <a href="gruender.html" class="btn-link">Mehr über Nico &amp; David</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 8. TIMELINE ===== -->
+<section class="pdp-v3-timeline">
+  <div class="container-wide">
+    <div class="text-center mx-auto" style="max-width: 720px;">
+      <span class="eyebrow">Was passiert</span>
+      <h2>Wenn du anfängst.</h2>
+      <p class="lead muted" style="margin-top: 32px;">
+        Keine Stimulation. Keine akute Wirkung. base. baut sich über Wochen auf, in den Zellen.
+      </p>
+    </div>
+
+    <div class="pdp-v3-timeline-grid">
+      <div class="pdp-v3-timeline-phase">
+        <div class="pdp-v3-timeline-when">Woche 1–2</div>
+        <h3>Die Grundlagen.</h3>
+        <p>B-Vitamine und Magnesium füllen auf, was fehlt. Viele berichten von gleichmäßigerer Energie und ruhigerem Schlaf.</p>
+      </div>
+      <div class="pdp-v3-timeline-phase">
+        <div class="pdp-v3-timeline-when">Woche 3–6</div>
+        <h3>Der Aufbau.</h3>
+        <p>Phosphatidylserin reichert sich in den Zellmembranen an. Q10 und PQQ unterstützen die mitochondriale Funktion. Fokus wird konstanter.</p>
+      </div>
+      <div class="pdp-v3-timeline-phase">
+        <div class="pdp-v3-timeline-when">Ab Monat 2</div>
+        <h3>Die neue Normalität.</h3>
+        <p>Alle Wirkstoffe auf optimalem Level. Den Unterschied merkst du am deutlichsten, wenn du base. einmal weglässt.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 9. REVIEWS ===== -->
+<section class="pdp-v3-reviews">
+  <div class="container-wide">
+    <div class="text-center mx-auto" style="max-width: 720px;">
+      <span class="eyebrow">Was unsere Kunden sagen</span>
+      <h2>Trustpilot · 4,8 von 5 Sternen.</h2>
+    </div>
+
+    <div class="pdp-v3-reviews-grid">
+      <div class="pdp-v3-review">
+        <div class="pdp-v3-review-stars">★★★★★</div>
+        <p>„Nach sechs Wochen deutlich stabilerer Fokus im Arbeitsalltag. Habe gleichzeitig zwei andere Supplements absetzen können. Eine Dose im Bad statt vier, das allein war die Umstellung wert."</p>
+        <div class="pdp-v3-review-author">M. Weitzmann, Unternehmer</div>
+        <div class="pdp-v3-review-meta">Verifizierter Kauf · Februar 2026</div>
+      </div>
+      <div class="pdp-v3-review">
+        <div class="pdp-v3-review-stars">★★★★★</div>
+        <p>„Klar deklarierte Dosierungen, studienbasiert formuliert. Das hab ich in der Preisklasse vorher so nicht gefunden. Werde das Abo definitiv fortsetzen."</p>
+        <div class="pdp-v3-review-author">Dr. K. Regenauer</div>
+        <div class="pdp-v3-review-meta">Verifizierter Kauf · Februar 2026</div>
+      </div>
+      <div class="pdp-v3-review">
+        <div class="pdp-v3-review-stars">★★★★★</div>
+        <p>„Ich nehme base. noch nicht lange, vertrage es aber bisher sehr gut. Da ich in der Nachtschicht arbeite, war mir wichtig, wie es sich im Alltag auswirkt: ich fühle mich wacher und insgesamt agiler."</p>
+        <div class="pdp-v3-review-author">W. Papelheim</div>
+        <div class="pdp-v3-review-meta">Verifizierter Kauf · März 2026</div>
+      </div>
+    </div>
+
+    <p class="text-center muted" style="margin-top: 48px; font-style: italic; font-size: 13px;">
+      Reviews illustrativ. Echte Trustpilot-Integration folgt mit Launch.
+    </p>
+  </div>
+</section>
+
+<!-- ===== CTA INSERT 3 ===== -->
+<section class="pdp-v3-cta-insert">
+  <div class="container">
+    <h3><em>Eine Entscheidung.</em> Jeden Morgen erledigt.</h3>
+    <a href="#pricing" class="btn">base. bestellen</a>
+  </div>
+</section>
+
+<!-- ===== 10. PRICING ===== -->
+<section class="pdp-v3-pricing" id="pricing">
+  <div class="container-wide">
+    <div class="text-center mx-auto" style="max-width: 720px;">
+      <span class="eyebrow">Pricing</span>
+      <h2>Zwei Optionen. Eine Formel.</h2>
+      <p class="lead muted" style="margin-top: 32px;">
+        Gleiche Qualität in beiden Modi. Der Preis pro Tag sinkt mit der Dauer.
+      </p>
+    </div>
+
+    <div class="pdp-v3-pricing-tabs">
+      <div class="pdp-v3-pricing-tab-controls">
+        <input type="radio" name="pricing-mode" id="pricing-abo" checked />
+        <label for="pricing-abo">Abo (empfohlen)</label>
+        <input type="radio" name="pricing-mode" id="pricing-once" />
+        <label for="pricing-once">Einmalkauf</label>
+      </div>
+
+      <div class="pdp-v3-pricing-content">
+        <div class="pdp-v3-pricing-options">
+          <div class="pdp-v3-pricing-card">
+            <h4>1 Monat</h4>
+            <div class="pdp-v3-pricing-amount">49 €</div>
+            <div class="pdp-v3-pricing-perday">1,63 € pro Tag</div>
+            <ul>
+              <li>Monatliche Lieferung</li>
+              <li>Mindestlaufzeit 3 Lieferungen</li>
+              <li>Danach jederzeit kündbar</li>
+              <li>Versandkostenfrei</li>
+            </ul>
+            <a href="#" class="btn btn-ghost" style="width: 100%; box-sizing: border-box;">Wählen</a>
+          </div>
+          <div class="pdp-v3-pricing-card featured">
+            <h4>3 Monate</h4>
+            <div class="pdp-v3-pricing-amount">139 €</div>
+            <div class="pdp-v3-pricing-perday">1,54 € pro Tag · 21 % gespart</div>
+            <ul>
+              <li>Quartalsweise Lieferung</li>
+              <li>Mindestlaufzeit 1 Lieferung</li>
+              <li>Versandkostenfrei</li>
+              <li>30 Tage Geld-zurück</li>
+            </ul>
+            <a href="#" class="btn" style="width: 100%; box-sizing: border-box;">Empfehlung wählen</a>
+          </div>
+          <div class="pdp-v3-pricing-card">
+            <h4>6 Monate</h4>
+            <div class="pdp-v3-pricing-amount">269 €</div>
+            <div class="pdp-v3-pricing-perday">1,49 € pro Tag · 24 % gespart</div>
+            <ul>
+              <li>Halbjährliche Lieferung</li>
+              <li>Mindestlaufzeit 1 Lieferung</li>
+              <li>Versandkostenfrei</li>
+              <li>30 Tage Geld-zurück</li>
+            </ul>
+            <a href="#" class="btn btn-ghost" style="width: 100%; box-sizing: border-box;">Wählen</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-center muted" style="margin-top: 48px; max-width: 640px; margin-left: auto; margin-right: auto; font-size: 14px;">
+      Alle Preise inkl. 19 % MwSt und Versand. Im Abo: Kündigung per E-Mail oder im Kundenkonto mit Wirkung zur nächsten Lieferung. Im Einmalkauf werden die gleichen Mengen-Optionen angeboten.
+    </p>
+  </div>
+</section>
+
+<!-- ===== 11. RISIKO-ANKER ===== -->
+<section class="pdp-v3-risk">
+  <div class="container">
+    <span class="eyebrow">30 Tage testen</span>
+    <h2>Wir tragen das Risiko.</h2>
+    <p>
+      Nimm base. einen Monat lang. Wenn du nicht überzeugt bist, erstatten wir den vollen Kaufpreis. Keine Rückfragen. Keine Formulare. Eine kurze E-Mail genügt.
+    </p>
+  </div>
+</section>
+
+<!-- ===== 12. FAQ ===== -->
+<section class="pdp-v3-faq">
+  <div class="container">
+    <div class="text-center mx-auto" style="max-width: 560px;">
+      <span class="eyebrow">FAQ</span>
+      <h2>Was häufig gefragt wird.</h2>
+    </div>
+
+    <div class="pdp-v3-faq-list">
+      <details>
+        <summary>Wie schnell merke ich etwas?</summary>
+        <p>Erste Veränderungen nach ein bis zwei Wochen: gleichmäßigere Energie, ruhigerer Schlaf. Volle Wirkung nach vier bis sechs Wochen, weil sich die meisten Wirkstoffe in Geweben anreichern müssen.</p>
+      </details>
+      <details>
+        <summary>Macht base. wach wie Kaffee?</summary>
+        <p>Nein. base. enthält kein Koffein. Die Kapazität kommt aus der Zellversorgung, nicht aus akuter Stimulation.</p>
+      </details>
+      <details>
+        <summary>Kann ich base. mit anderen Supplements kombinieren?</summary>
+        <p>Ja. Omega-3, Kreatin und Protein können sinnvoll ergänzen. Bei Medikamenten, besonders Blutverdünnern, bitte vorher Rücksprache mit dem Arzt halten (wegen Vitamin K2 und Ginkgo).</p>
+      </details>
+      <details>
+        <summary>Ist base. vegan?</summary>
+        <p>Vollständig. HPMC-Kapseln. D3 aus Flechten, nicht aus Lanolin. Alle 29 Inhaltsstoffe sind pflanzlich oder synthetisch.</p>
+      </details>
+      <details>
+        <summary>Wie funktioniert das Abo?</summary>
+        <p>49 € pro Monat, monatliche Lieferung. Mindestlaufzeit drei Lieferungen, danach jederzeit kündbar oder pausierbar im Kundenkonto. Bei den 3- und 6-Monats-Optionen entfällt die Mindestlaufzeit.</p>
+      </details>
+      <details>
+        <summary>Phosphatidylserin ist aus Soja. Ist das ein Allergie-Problem?</summary>
+        <p>Unser Phosphatidylserin wird aus hochgereinigtem Sojalecithin gewonnen. Der Anteil an Soja-Proteinen, die für Allergien relevant sind, ist extrem niedrig. Bei schwerer Soja-Allergie empfehlen wir, vorher mit einem Arzt zu sprechen.</p>
+      </details>
+      <details>
+        <summary>Wie lagere ich base.?</summary>
+        <p>Trocken und vor direkter Sonne geschützt, bei Zimmertemperatur. Das Glas gut verschlossen halten. Kein Kühlschrank nötig. Haltbarkeit nach Öffnung: siehe Label, in der Regel 12 Monate.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 13. FINAL CTA ===== -->
+<section class="pdp-v3-final">
+  <div class="container">
+    <span class="eyebrow">Beginne</span>
+    <div class="pdp-v3-final-name">base.</div>
+    <p class="pdp-v3-final-tagline">Klarheit, die bleibt.</p>
+    <div class="cta-row" style="justify-content: center; margin-top: 56px;">
+      <a href="#pricing" class="btn">Abo starten</a>
+      <a href="#pricing" class="btn-link">Einmalkauf</a>
+    </div>
+    <p class="micro" style="margin-top: 32px;">
+      Made in Germany · FSSC 22000 · 30 Tage risikofrei · Versandkostenfrei
+    </p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-tag">own your life.</div>
+    <div class="footer-links">
+      <a href="homepage.html">Homepage</a>
+      <a href="inhaltsstoffe.html">Inhaltsstoffe</a>
+      <a href="insights.html">Insights</a>
+      <a href="gruender.html">Die Gründer</a>
+      <a href="#faq">FAQ</a>
+      <a href="mailto:hi@theplus.de">Kontakt</a>
+      <a href="#">Impressum</a>
+      <a href="#">Datenschutz</a>
+      <a href="#">AGB</a>
+    </div>
+    <p class="footer-copy">+ the plus nutrition GmbH · Performance-Supplements für ambitionierte Menschen.</p>
+  </div>
+</footer>
+
+</body>
+</html>
